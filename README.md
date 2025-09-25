@@ -94,7 +94,7 @@ docker run -p 5000:5000 devsecops-flask-project
   - **Secrets Scan**: Run Gitleaks  
   - **Build**: Build Docker image  
   - **Image Scan**: Run Trivy on the image  
-  - **Push**: Push Docker image to a registry (GitHub Container Registry or DockerHub)  
+  - **Push**: Push Docker image to a registry (GitHub Container Registry or DockerHub) (Optional)
   - **Deploy**: Run the container in your target environment  
 
 ---
@@ -109,14 +109,14 @@ docker run -p 5000:5000 devsecops-flask-project
 - Deploy **Prometheus** in a container  
 - Deploy **Grafana** in a container  
 - Connect Prometheus as a data source in Grafana  
-- Create a dashboard to monitor system metrics on the server where the application is deployed
+- Create two dashboards: one generic monitoring dashboard for system metrics and one Docker monitoring dashboard for container metrics on the server where the application is deployed
 
 ---
 ### 7. Final Deliverables
-- Working Flask app deployed via CI/CD  
+- WShare the repository URL of a working Flask app deployed via CI/CD  
 - Passing scans in CI/CD (SonarQube, Trivy, Gitleaks)  
 - Running Prometheus + Grafana monitoring stack  
-- Documentation of:
+- Documentation (google doc) of:
   - Insecure issues found  
   - Fixes applied  
   - Screenshots of scans & dashboards  
