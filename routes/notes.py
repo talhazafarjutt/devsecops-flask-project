@@ -5,6 +5,7 @@ from app import app
 from forms.note_form import NoteForm
 from models import Session, Note
 from utils.notes import get_notes_for_user
+from utils.input_sanitizer import sanitize_text_field
 
 
 @app.route('/notes', methods=['GET'])
@@ -21,11 +22,15 @@ def add_note():
     if not form.validate():
         flash(dumps(form.errors), 'error')
     else:
+        # Sanitize inputs
+        title = sanitize_text_field(form.title.data, 200)  # Limit title to 200 chars
+        text = sanitize_text_field(form.text.data, 5000)   # Limit text to 5000 chars
+        
         with Session(expire_on_commit=False) as session:
             note = Note(id=None,
                         created_at=None,
-                        title=form.title.data,
-                        text=form.text.data,
+                        title=title,
+                        text=text,
                         private=form.private.data,
                         user_id=current_user.id)
             session.add(note)

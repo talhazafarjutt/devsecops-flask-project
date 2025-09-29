@@ -1,7 +1,13 @@
+version: '3.8'
+
 services:
-  extremely_vulnerable_flask_app:
+  flask_app:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 5000:80
+      - "5001:80"
+    env_file:
+      - .env
+    volumes:
+      - ./database:/srv/flask_app/database

@@ -6,6 +6,7 @@ from bcrypt import checkpw
 from app import app, login_manager
 from models import Session, User
 from forms.login_form import LoginForm
+from utils.input_sanitizer import sanitize_email
 
 
 @login_manager.user_loader

@@ -10,7 +10,7 @@ from .note import Note
 basedir = path.abspath(path.dirname(__file__))
 
 engine: Engine = create_engine(
-    'sqlite:///' + path.join(basedir, '..', 'database.db'),
+    'sqlite:///' + path.join(basedir, '..', 'database', 'database.db'),
     echo=True,
 )
 

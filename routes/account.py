@@ -13,6 +13,7 @@ from models import Session, Note
 from forms.image_form import ImageForm
 from forms.account_form import AccountForm
 from utils.profile_image import get_base64_image_blob
+from utils.input_sanitizer import sanitize_text_field
 
 
 @app.route('/account')
@@ -25,12 +26,16 @@ def account():
 @login_required
 def search():
     search_param = request.args.get('search', '')
+    # Sanitize search parameter
+    search_param = sanitize_text_field(search_param, 100)  # Limit to 100 chars
+    
     with Session() as session:
         session.query(Note)
 
+        # Use parameterized query to prevent SQL injection
         personal_notes = session.query(Note).filter(
             Note.user_id == current_user.id,
-            text(f"text like '%{search_param}%'")).all()
+            Note.text.like(f"%{search_param}%")).all()
         return render_template(
             'search.html',
             search=search_param,
@@ -56,11 +61,15 @@ def add_image():
     if not form.validate():
         flash(json.dumps(form.errors), 'error')
     else:
-        with Session() as session:
-            current_user.profile_image = get_base64_image_blob(
-                form.url.data).encode()
-            session.merge(current_user)
-            session.commit()
+        try:
+            with Session() as session:
+                current_user.profile_image = get_base64_image_blob(
+                    form.url.data).encode()
+                session.merge(current_user)
+                session.commit()
+                flash('Profile image updated', 'success')
+        except Exception as e:
+            flash(f'Error updating profile image: {str(e)}', 'error')
 
     return redirect('/account')
 
@@ -73,6 +82,14 @@ def update_account():
         flash(json.dumps(form.errors), 'error')
     else:
         with Session() as session:
+            # Sanitize email if provided
+            if form.email.data:
+                try:
+                    form.email.data = sanitize_text_field(form.email.data, 255)
+                except ValueError:
+                    flash('Invalid email format', 'error')
+                    return redirect('/account')
+            
             filtered_values = {
                 key: value
                 for key, value in form.data.items()
@@ -85,6 +102,10 @@ def update_account():
                 'password_control')
 
             if was_password_changed:
+                # Sanitize password (basic check)
+                if len(new_password) < 8:
+                    flash('Password must be at least 8 characters long', 'error')
+                    return redirect('/account')
                 current_user.password = hashpw(new_password.encode(),
                                                gensalt()).decode()
 

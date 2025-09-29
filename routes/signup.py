@@ -1,21 +1,21 @@
 from json import dumps
 from sqlite3 import OperationalError
 from typing import Union
-from sqlalchemy.sql import text
 
 from flask import render_template, request, redirect, flash
 from bcrypt import gensalt, hashpw
 from app import app
 from models import Session, User, RegistrationCode
 from forms.registration_form import RegistrationForm
+from utils.input_sanitizer import sanitize_email, sanitize_text_field
 
 
 def validate_token(code: str, session: Session) -> Union[str, None]:
     try:
-        result = session.execute(
-            text(f"""
-                SELECT id, code FROM {RegistrationCode.__tablename__} WHERE code = '{code}'
-            """)).first()
+        # Use proper ORM query instead of raw SQL to prevent injection
+        result = session.query(RegistrationCode.id, RegistrationCode.code).filter(
+            RegistrationCode.code == code
+        ).first()
 
         if result is None:
             return None

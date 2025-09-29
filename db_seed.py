@@ -1,3 +1,4 @@
+import os
 from uuid import uuid4
 from bcrypt import hashpw, gensalt
 from models import RegistrationCode, User, Note, Session
@@ -6,7 +7,7 @@ from models import RegistrationCode, User, Note, Session
 def setup_db():
     with Session() as session:
         if session.query(RegistrationCode).count() == 0:
-            static_code = 'a36e990b-0024-4d55-b74a-f8d7528e1764'
+            static_code = os.environ.get('STATIC_REGISTRATION_CODE', 'a36e990b-0024-4d55-b74a-f8d7528e1764')
             session.add(RegistrationCode(static_code))
 
             for _ in range(10):
@@ -14,9 +15,15 @@ def setup_db():
             session.commit()
 
         if session.query(User).count() == 0:
-            user = User('user@evfa.com', hashpw(b'user', gensalt()).decode())
-            admin = User('admin@evfa.com',
-                         hashpw(b'admin', gensalt()).decode(), True)
+            # Use environment variables for default credentials
+            user_email = os.environ.get('DEFAULT_USER_EMAIL', 'user@evfa.com')
+            user_password = os.environ.get('DEFAULT_USER_PASSWORD', 'StrongPassword123!')
+            admin_email = os.environ.get('DEFAULT_ADMIN_EMAIL', 'admin@evfa.com')
+            admin_password = os.environ.get('DEFAULT_ADMIN_PASSWORD', 'StrongAdminPassword123!')
+            
+            user = User(user_email, hashpw(user_password.encode('utf-8'), gensalt()).decode())
+            admin = User(admin_email,
+                         hashpw(admin_password.encode('utf-8'), gensalt()).decode(), True)
 
             session.add(user)
             session.add(admin)

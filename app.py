@@ -1,6 +1,5 @@
-app.config['SECRET_KEY'] = 'badsecret123'
 #!/usr/bin/env python3
-
+import os
 from flask_bootstrap import Bootstrap5
 from flask_ckeditor import CKEditor
 from flask_login import LoginManager
@@ -9,12 +8,15 @@ from db_seed import setup_db
 from routes import init
 
 app = Flask(__name__)
-app.secret_key = "super secret key"
+app.secret_key = os.environ.get("SECRET_KEY", "fallback-secret-key-for-dev-only")
 app.config["BOOTSTRAP_SERVE_LOCAL"] = True
 app.config["CKEDITOR_SERVE_LOCAL"] = True
+# Disable debug mode in production
+app.config["DEBUG"] = False
 bootstrap = Bootstrap5(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
+login_manager.login_view = "login"
 ckeditor = CKEditor()
 
 ckeditor.init_app(app)
@@ -29,7 +31,5 @@ def unauthorized():
 
 @app.errorhandler(404)
 def page_not_found(error):
-    detailed_message = render_template_string(
-        f"{error}. Requested URL was {request.path}"
-    )
-    return render_template("404.html", detailed_message=detailed_message)
+    # Don't expose detailed error information in production
+    return render_template("404.html"), 404
