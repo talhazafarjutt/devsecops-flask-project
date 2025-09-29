@@ -1,0 +1,587 @@
+{
+  "SchemaVersion": 2,
+  "CreatedAt": "2025-09-29T18:43:51.251464+05:00",
+  "ArtifactName": "devsecops-flask-project-flask_app",
+  "ArtifactType": "container_image",
+  "Metadata": {
+    "Size": 488887808,
+    "OS": {
+      "Family": "alpine",
+      "Name": "3.22.1"
+    },
+    "ImageID": "sha256:c67a6c167f5aef0fb5c3f21b71caf72e1b8534b51510ddb37f86b730ffa8dd57",
+    "DiffIDs": [
+      "sha256:418dccb7d85a63a6aa574439840f7a6fa6fd2321b3e2394568a317735e867d35",
+      "sha256:75ae29d7a84e6d9f90f46281a2507b9cb145528e89e057055ae95b644b64375b",
+      "sha256:5139c09013743f74dce3304d3fb3ac0c09256e746fa6889174352f39f0c4cd3e",
+      "sha256:a8f49dc9b18e1c250ff4db9693f97b10efc415af3adfc79c02ce01492a782f31",
+      "sha256:5aaa340ffa66588c0295507e27cd8ef6553556e78e0026e707f5e96d134e534f",
+      "sha256:596bf44b22fbe1bcb04f82f1530d9c6eb76c40c906ceec2b2fa332885928be6f",
+      "sha256:7f61a0f05067e3be46d11b03217f2bd567e4ba760678886162acd9531e9b5d60",
+      "sha256:1fa99b69a7577845370ac801a0285df26addbd7c156e111743058f09f73a895a",
+      "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+      "sha256:cf0aa14edd21cf75a6441976eadb05a747134714d5c2cdae22830bebe686df32",
+      "sha256:9e858a166880ef8a7e0d0dbc80378ca408eca2091c20343e4e969f6c32b44f6c"
+    ],
+    "RepoTags": [
+      "devsecops-flask-project-flask_app:latest"
+    ],
+    "RepoDigests": [
+      "devsecops-flask-project-flask_app@sha256:c67a6c167f5aef0fb5c3f21b71caf72e1b8534b51510ddb37f86b730ffa8dd57"
+    ],
+    "ImageConfig": {
+      "architecture": "amd64",
+      "created": "2025-09-29T12:47:24.974071592Z",
+      "history": [
+        {
+          "created": "2025-06-04T04:24:53Z",
+          "created_by": "ADD alpine-minirootfs-3.22.1-x86_64.tar.gz / # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-06-04T04:24:53Z",
+          "created_by": "CMD [\"/bin/sh\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-06-04T04:24:53Z",
+          "created_by": "ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-06-04T04:24:53Z",
+          "created_by": "ENV LANG=C.UTF-8",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-06-04T04:24:53Z",
+          "created_by": "RUN /bin/sh -c set -eux; \tapk add --no-cache \t\tca-certificates \t\ttzdata \t; # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-06-04T04:24:53Z",
+          "created_by": "ENV GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-06-04T04:24:53Z",
+          "created_by": "ENV PYTHON_VERSION=3.9.23",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-06-04T04:24:53Z",
+          "created_by": "ENV PYTHON_SHA256=61a42919e13d539f7673cf11d1c404380e28e540510860b9d242196e165709c9",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-06-04T04:24:53Z",
+          "created_by": "RUN /bin/sh -c set -eux; \t\tapk add --no-cache --virtual .build-deps \t\tgnupg \t\ttar \t\txz \t\t\t\tbluez-dev \t\tbzip2-dev \t\tdpkg-dev dpkg \t\tfindutils \t\tgcc \t\tgdbm-dev \t\tlibc-dev \t\tlibffi-dev \t\tlibnsl-dev \t\tlibtirpc-dev \t\tlinux-headers \t\tmake \t\tncurses-dev \t\topenssl-dev \t\tpax-utils \t\treadline-dev \t\tsqlite-dev \t\ttcl-dev \t\ttk \t\ttk-dev \t\tutil-linux-dev \t\txz-dev \t\tzlib-dev \t; \t\twget -O python.tar.xz \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz\"; \techo \"$PYTHON_SHA256 *python.tar.xz\" | sha256sum -c -; \twget -O python.tar.xz.asc \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz.asc\"; \tGNUPGHOME=\"$(mktemp -d)\"; export GNUPGHOME; \tgpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$GPG_KEY\"; \tgpg --batch --verify python.tar.xz.asc python.tar.xz; \tgpgconf --kill all; \trm -rf \"$GNUPGHOME\" python.tar.xz.asc; \tmkdir -p /usr/src/python; \ttar --extract --directory /usr/src/python --strip-components=1 --file python.tar.xz; \trm python.tar.xz; \t\tcd /usr/src/python; \tgnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\"; \t./configure \t\t--build=\"$gnuArch\" \t\t--enable-loadable-sqlite-extensions \t\t--enable-option-checking=fatal \t\t--enable-shared \t\t--with-ensurepip \t; \tnproc=\"$(nproc)\"; \tEXTRA_CFLAGS=\"-DTHREAD_STACK_SIZE=0x100000\"; \tLDFLAGS=\"${LDFLAGS:--Wl},--strip-all\"; \tmake -j \"$nproc\" \t\t\"EXTRA_CFLAGS=${EXTRA_CFLAGS:-}\" \t\t\"LDFLAGS=${LDFLAGS:-}\" \t; \trm python; \tmake -j \"$nproc\" \t\t\"EXTRA_CFLAGS=${EXTRA_CFLAGS:-}\" \t\t\"LDFLAGS=${LDFLAGS:--Wl},-rpath='\\$\\$ORIGIN/../lib'\" \t\tpython \t; \tmake install; \t\tcd /; \trm -rf /usr/src/python; \t\tfind /usr/local -depth \t\t\\( \t\t\t\\( -type d -a \\( -name test -o -name tests -o -name idle_test \\) \\) \t\t\t-o \\( -type f -a \\( -name '*.pyc' -o -name '*.pyo' -o -name 'libpython*.a' \\) \\) \t\t\\) -exec rm -rf '{}' + \t; \t\tfind /usr/local -type f -executable -not \\( -name '*tkinter*' \\) -exec scanelf --needed --nobanner --format '%n#p' '{}' ';' \t\t| tr ',' '\\n' \t\t| sort -u \t\t| awk 'system(\"[ -e /usr/local/lib/\" $1 \" ]\") == 0 { next } { print \"so:\" $1 }' \t\t| xargs -rt apk add --no-network --virtual .python-rundeps \t; \tapk del --no-network .build-deps; \t\texport PYTHONDONTWRITEBYTECODE=1; \tpython3 --version; \t\tpip3 install \t\t--disable-pip-version-check \t\t--no-cache-dir \t\t--no-compile \t\t'setuptools==58.1.0' \t\t'wheel\u003c0.46' \t; \tpip3 --version # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-06-04T04:24:53Z",
+          "created_by": "RUN /bin/sh -c set -eux; \tfor src in idle3 pip3 pydoc3 python3 python3-config; do \t\tdst=\"$(echo \"$src\" | tr -d 3)\"; \t\t[ -s \"/usr/local/bin/$src\" ]; \t\t[ ! -e \"/usr/local/bin/$dst\" ]; \t\tln -svT \"$src\" \"/usr/local/bin/$dst\"; \tdone # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-06-04T04:24:53Z",
+          "created_by": "CMD [\"python3\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-09-29T12:45:01Z",
+          "created_by": "RUN /bin/sh -c addgroup -g 1001 -S uwsgi \u0026\u0026     adduser -u 1001 -S uwsgi -G uwsgi # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-09-29T12:46:28Z",
+          "created_by": "RUN /bin/sh -c apk add --no-cache     nginx     uwsgi     uwsgi-python3     build-base     python3-dev     linux-headers # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-09-29T12:46:28Z",
+          "created_by": "COPY conf/nginx.conf /etc/nginx/nginx.conf # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-09-29T12:46:28Z",
+          "created_by": "COPY --chown=uwsgi:uwsgi . /srv/flask_app # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-09-29T12:46:29Z",
+          "created_by": "WORKDIR /srv/flask_app",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-09-29T12:47:24Z",
+          "created_by": "RUN /bin/sh -c pip install --no-cache-dir -r requirements.txt # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-09-29T12:47:24Z",
+          "created_by": "RUN /bin/sh -c mkdir -p /var/log/nginx /var/cache/nginx /var/run /tmp /var/lib/nginx/tmp /tmp/client_body_temp /srv/flask_app/database     \u0026\u0026 chown -R uwsgi:uwsgi /var/log/nginx /var/cache/nginx /var/run /tmp /var/lib/nginx /tmp/client_body_temp /srv/flask_app/database     \u0026\u0026 chown -R uwsgi:uwsgi /srv/flask_app     \u0026\u0026 chmod -R 755 /var/lib/nginx # buildkit",
+          "comment": "buildkit.dockerfile.v0"
+        },
+        {
+          "created": "2025-09-29T12:47:24Z",
+          "created_by": "USER uwsgi",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-09-29T12:47:24Z",
+          "created_by": "EXPOSE \u0026{[{{38 0} {38 0}}] 0xc0008a0600}",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-09-29T12:47:24Z",
+          "created_by": "CMD [\"sh\" \"-c\" \"nginx \u0026\u0026 uwsgi --ini uwsgi.ini\"]",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        }
+      ],
+      "os": "linux",
+      "rootfs": {
+        "type": "layers",
+        "diff_ids": [
+          "sha256:418dccb7d85a63a6aa574439840f7a6fa6fd2321b3e2394568a317735e867d35",
+          "sha256:75ae29d7a84e6d9f90f46281a2507b9cb145528e89e057055ae95b644b64375b",
+          "sha256:5139c09013743f74dce3304d3fb3ac0c09256e746fa6889174352f39f0c4cd3e",
+          "sha256:a8f49dc9b18e1c250ff4db9693f97b10efc415af3adfc79c02ce01492a782f31",
+          "sha256:5aaa340ffa66588c0295507e27cd8ef6553556e78e0026e707f5e96d134e534f",
+          "sha256:596bf44b22fbe1bcb04f82f1530d9c6eb76c40c906ceec2b2fa332885928be6f",
+          "sha256:7f61a0f05067e3be46d11b03217f2bd567e4ba760678886162acd9531e9b5d60",
+          "sha256:1fa99b69a7577845370ac801a0285df26addbd7c156e111743058f09f73a895a",
+          "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+          "sha256:cf0aa14edd21cf75a6441976eadb05a747134714d5c2cdae22830bebe686df32",
+          "sha256:9e858a166880ef8a7e0d0dbc80378ca408eca2091c20343e4e969f6c32b44f6c"
+        ]
+      },
+      "config": {
+        "Cmd": [
+          "sh",
+          "-c",
+          "nginx \u0026\u0026 uwsgi --ini uwsgi.ini"
+        ],
+        "Env": [
+          "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "LANG=C.UTF-8",
+          "GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568",
+          "PYTHON_VERSION=3.9.23",
+          "PYTHON_SHA256=61a42919e13d539f7673cf11d1c404380e28e540510860b9d242196e165709c9"
+        ],
+        "Labels": {
+          "com.docker.compose.project": "devsecops-flask-project",
+          "com.docker.compose.service": "flask_app",
+          "com.docker.compose.version": "2.39.2"
+        },
+        "User": "uwsgi",
+        "WorkingDir": "/srv/flask_app",
+        "ExposedPorts": {
+          "80/tcp": {}
+        },
+        "ArgsEscaped": true
+      }
+    },
+    "Layers": [
+      {
+        "Size": 8596480,
+        "Digest": "sha256:9824c27679d3b27c5e1cb00a73adb6f4f8d556994111c12db3c5d61a0c843df8",
+        "DiffID": "sha256:418dccb7d85a63a6aa574439840f7a6fa6fd2321b3e2394568a317735e867d35"
+      },
+      {
+        "Size": 1656320,
+        "Digest": "sha256:696282ba7530403087147a86e1fd4c2b83d3507ff200fa6f1e58db0004f89010",
+        "DiffID": "sha256:75ae29d7a84e6d9f90f46281a2507b9cb145528e89e057055ae95b644b64375b"
+      },
+      {
+        "Size": 41994240,
+        "Digest": "sha256:d325733a625202bb5fe7304c973b984f63bebdb83f9fb2c56c7cb769e7d9e459",
+        "DiffID": "sha256:5139c09013743f74dce3304d3fb3ac0c09256e746fa6889174352f39f0c4cd3e"
+      },
+      {
+        "Size": 5120,
+        "Digest": "sha256:e9a57d92e270674b2a656977030520f3b8e3047191a8cd973cc3626969bc7bb2",
+        "DiffID": "sha256:a8f49dc9b18e1c250ff4db9693f97b10efc415af3adfc79c02ce01492a782f31"
+      },
+      {
+        "Size": 10752,
+        "Digest": "sha256:8261fe364d0b7fe7d2a2b1a3feee8561f5f7194535b7ab0515f89ec77ecea3cf",
+        "DiffID": "sha256:5aaa340ffa66588c0295507e27cd8ef6553556e78e0026e707f5e96d134e534f"
+      },
+      {
+        "Size": 343532032,
+        "Digest": "sha256:d2b148898f7bf35fbf81810f2594c46dc18f994a3616c1433e7cc700e048080f",
+        "DiffID": "sha256:596bf44b22fbe1bcb04f82f1530d9c6eb76c40c906ceec2b2fa332885928be6f"
+      },
+      {
+        "Size": 3584,
+        "Digest": "sha256:8ac570929653820eff804a6fb320217e4c384c52a0cb5a9f2ebfd5078d69a150",
+        "DiffID": "sha256:7f61a0f05067e3be46d11b03217f2bd567e4ba760678886162acd9531e9b5d60"
+      },
+      {
+        "Size": 518144,
+        "Digest": "sha256:3da2566ff7cd9ab5e9b1e95824be0cc9bd23798717fbe4f340192fbdff276d80",
+        "DiffID": "sha256:1fa99b69a7577845370ac801a0285df26addbd7c156e111743058f09f73a895a"
+      },
+      {
+        "Size": 1024,
+        "Digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+        "DiffID": "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+      },
+      {
+        "Size": 92282880,
+        "Digest": "sha256:0d5aa0e2b159898353a72aa17eb468f87ab78226a7b9ada742ba4bbd39d9a7ff",
+        "DiffID": "sha256:cf0aa14edd21cf75a6441976eadb05a747134714d5c2cdae22830bebe686df32"
+      },
+      {
+        "Size": 287232,
+        "Digest": "sha256:5424680b6853e68a2d71f1d668b9300cf53cba81ff2bd462863c4f4a4e44a77a",
+        "DiffID": "sha256:9e858a166880ef8a7e0d0dbc80378ca408eca2091c20343e4e969f6c32b44f6c"
+      }
+    ]
+  },
+  "Results": [
+    {
+      "Target": "devsecops-flask-project-flask_app (alpine 3.22.1)",
+      "Class": "os-pkgs",
+      "Type": "alpine",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2025-6965",
+          "PkgID": "sqlite-libs@3.49.2-r0",
+          "PkgName": "sqlite-libs",
+          "PkgIdentifier": {
+            "PURL": "pkg:apk/alpine/sqlite-libs@3.49.2-r0?arch=x86_64\u0026distro=3.22.1",
+            "UID": "28d34c399b712b02"
+          },
+          "InstalledVersion": "3.49.2-r0",
+          "FixedVersion": "3.49.2-r1",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:d325733a625202bb5fe7304c973b984f63bebdb83f9fb2c56c7cb769e7d9e459",
+            "DiffID": "sha256:5139c09013743f74dce3304d3fb3ac0c09256e746fa6889174352f39f0c4cd3e"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-6965",
+          "DataSource": {
+            "ID": "alpine",
+            "Name": "Alpine Secdb",
+            "URL": "https://secdb.alpinelinux.org/"
+          },
+          "Title": "sqlite: Integer Truncation in SQLite",
+          "Description": "There exists a vulnerability in SQLite versions before 3.50.2 where the number of aggregate terms could exceed the number of columns available. This could lead to a memory corruption issue. We recommend upgrading to version 3.50.2 or above.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-197"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 2,
+            "azure": 3,
+            "bitnami": 3,
+            "cbl-mariner": 3,
+            "nvd": 4,
+            "oracle-oval": 3,
+            "photon": 4,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:L/I:H/A:L",
+              "V3Score": 7.7
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:11992",
+            "https://access.redhat.com/security/cve/CVE-2025-6965",
+            "https://bugzilla.redhat.com/2380149",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2380149",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6965",
+            "https://errata.almalinux.org/9/ALSA-2025-11992.html",
+            "https://errata.rockylinux.org/RLSA-2025:12010",
+            "https://linux.oracle.com/cve/CVE-2025-6965.html",
+            "https://linux.oracle.com/errata/ELSA-2025-14101.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-6965",
+            "https://ubuntu.com/security/notices/USN-7676-1",
+            "https://ubuntu.com/security/notices/USN-7679-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-6965",
+            "https://www.sqlite.org/src/info/5508b56fd24016c13981ec280ecdd833007c9d8dd595edb295b984c2b487b5c8"
+          ],
+          "PublishedDate": "2025-07-15T14:15:31.08Z",
+          "LastModifiedDate": "2025-07-22T17:06:21.51Z"
+        }
+      ]
+    },
+    {
+      "Target": "Python",
+      "Class": "lang-pkgs",
+      "Type": "python-pkg",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2022-40897",
+          "PkgName": "setuptools",
+          "PkgPath": "usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/METADATA",
+          "PkgIdentifier": {
+            "PURL": "pkg:pypi/setuptools@58.1.0",
+            "UID": "a31a7b733078920c"
+          },
+          "InstalledVersion": "58.1.0",
+          "FixedVersion": "65.5.1",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:d325733a625202bb5fe7304c973b984f63bebdb83f9fb2c56c7cb769e7d9e459",
+            "DiffID": "sha256:5139c09013743f74dce3304d3fb3ac0c09256e746fa6889174352f39f0c4cd3e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-40897",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory pip",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+          },
+          "Title": "pypa-setuptools: Regular Expression Denial of Service (ReDoS) in package_index.py",
+          "Description": "Python Packaging Authority (PyPA) setuptools before 65.5.1 allows remote attackers to cause a denial of service via HTML in a crafted package or custom PackageIndex page. There is a Regular Expression Denial of Service (ReDoS) in package_index.py.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-1333"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "amazon": 2,
+            "bitnami": 2,
+            "cbl-mariner": 2,
+            "ghsa": 3,
+            "nvd": 2,
+            "oracle-oval": 2,
+            "photon": 2,
+            "redhat": 2,
+            "rocky": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.9
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.9
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 5.9
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2023:0952",
+            "https://access.redhat.com/security/cve/CVE-2022-40897",
+            "https://bugzilla.redhat.com/2158559",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2158559",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-40897",
+            "https://errata.almalinux.org/9/ALSA-2023-0952.html",
+            "https://errata.rockylinux.org/RLSA-2023:0952",
+            "https://github.com/pypa/advisory-database/tree/main/vulns/setuptools/PYSEC-2022-43012.yaml",
+            "https://github.com/pypa/setuptools",
+            "https://github.com/pypa/setuptools/blob/fe8a98e696241487ba6ac9f91faa38ade939ec5d/setuptools/package_index.py#L200",
+            "https://github.com/pypa/setuptools/commit/43a9c9bfa6aa626ec2a22540bea28d2ca77964be",
+            "https://github.com/pypa/setuptools/compare/v65.5.0...v65.5.1",
+            "https://github.com/pypa/setuptools/issues/3659",
+            "https://linux.oracle.com/cve/CVE-2022-40897.html",
+            "https://linux.oracle.com/errata/ELSA-2024-2987.html",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/ADES3NLOE5QJKBLGNZNI2RGVOSQXA37R",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/ADES3NLOE5QJKBLGNZNI2RGVOSQXA37R/",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/YNA2BAH2ACBZ4TVJZKFLCR7L23BG5C3H",
+            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/YNA2BAH2ACBZ4TVJZKFLCR7L23BG5C3H/",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ADES3NLOE5QJKBLGNZNI2RGVOSQXA37R",
+            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/YNA2BAH2ACBZ4TVJZKFLCR7L23BG5C3H",
+            "https://nvd.nist.gov/vuln/detail/CVE-2022-40897",
+            "https://pyup.io/posts/pyup-discovers-redos-vulnerabilities-in-top-python-packages",
+            "https://pyup.io/posts/pyup-discovers-redos-vulnerabilities-in-top-python-packages/",
+            "https://pyup.io/vulnerabilities/CVE-2022-40897/52495",
+            "https://pyup.io/vulnerabilities/CVE-2022-40897/52495/",
+            "https://security.netapp.com/advisory/ntap-20230214-0001",
+            "https://security.netapp.com/advisory/ntap-20230214-0001/",
+            "https://security.netapp.com/advisory/ntap-20240621-0006",
+            "https://security.netapp.com/advisory/ntap-20240621-0006/",
+            "https://setuptools.pypa.io/en/latest",
+            "https://ubuntu.com/security/notices/USN-5817-1",
+            "https://www.cve.org/CVERecord?id=CVE-2022-40897"
+          ],
+          "PublishedDate": "2022-12-23T00:15:13.987Z",
+          "LastModifiedDate": "2024-11-21T07:22:13.787Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2024-6345",
+          "PkgName": "setuptools",
+          "PkgPath": "usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/METADATA",
+          "PkgIdentifier": {
+            "PURL": "pkg:pypi/setuptools@58.1.0",
+            "UID": "a31a7b733078920c"
+          },
+          "InstalledVersion": "58.1.0",
+          "FixedVersion": "70.0.0",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:d325733a625202bb5fe7304c973b984f63bebdb83f9fb2c56c7cb769e7d9e459",
+            "DiffID": "sha256:5139c09013743f74dce3304d3fb3ac0c09256e746fa6889174352f39f0c4cd3e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-6345",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory pip",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+          },
+          "Title": "pypa/setuptools: Remote code execution via download functions in the package_index module in pypa/setuptools",
+          "Description": "A vulnerability in the package_index module of pypa/setuptools versions up to 69.1.1 allows for remote code execution via its download functions. These functions, which are used to download packages from URLs provided by users or retrieved from package index servers, are susceptible to code injection. If these functions are exposed to user-controlled inputs, such as package URLs, they can execute arbitrary commands on the system. The issue is fixed in version 70.0.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-94"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 3,
+            "azure": 3,
+            "bitnami": 3,
+            "cbl-mariner": 3,
+            "ghsa": 3,
+            "oracle-oval": 3,
+            "photon": 3,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            },
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2024:6726",
+            "https://access.redhat.com/security/cve/CVE-2024-6345",
+            "https://bugzilla.redhat.com/2297771",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2297771",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-6345",
+            "https://errata.almalinux.org/9/ALSA-2024-6726.html",
+            "https://errata.rockylinux.org/RLSA-2024:6726",
+            "https://github.com/pypa/setuptools",
+            "https://github.com/pypa/setuptools/commit/88807c7062788254f654ea8c03427adc859321f0",
+            "https://github.com/pypa/setuptools/pull/4332",
+            "https://huntr.com/bounties/d6362117-ad57-4e83-951f-b8141c6e7ca5",
+            "https://linux.oracle.com/cve/CVE-2024-6345.html",
+            "https://linux.oracle.com/errata/ELSA-2024-6726.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2024-6345",
+            "https://ubuntu.com/security/notices/USN-7002-1",
+            "https://www.cve.org/CVERecord?id=CVE-2024-6345"
+          ],
+          "PublishedDate": "2024-07-15T01:15:01.73Z",
+          "LastModifiedDate": "2024-11-21T09:49:28.17Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-47273",
+          "PkgName": "setuptools",
+          "PkgPath": "usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/METADATA",
+          "PkgIdentifier": {
+            "PURL": "pkg:pypi/setuptools@58.1.0",
+            "UID": "a31a7b733078920c"
+          },
+          "InstalledVersion": "58.1.0",
+          "FixedVersion": "78.1.1",
+          "Status": "fixed",
+          "Layer": {
+            "Digest": "sha256:d325733a625202bb5fe7304c973b984f63bebdb83f9fb2c56c7cb769e7d9e459",
+            "DiffID": "sha256:5139c09013743f74dce3304d3fb3ac0c09256e746fa6889174352f39f0c4cd3e"
+          },
+          "SeveritySource": "ghsa",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-47273",
+          "DataSource": {
+            "ID": "ghsa",
+            "Name": "GitHub Security Advisory pip",
+            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
+          },
+          "Title": "setuptools: Path Traversal Vulnerability in setuptools PackageIndex",
+          "Description": "setuptools is a package that allows users to download, build, install, upgrade, and uninstall Python packages. A path traversal vulnerability in `PackageIndex` is present in setuptools prior to version 78.1.1. An attacker would be allowed to write files to arbitrary locations on the filesystem with the permissions of the process running the Python code, which could escalate to remote code execution depending on the context. Version 78.1.1 fixes the issue.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-22"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "amazon": 3,
+            "azure": 3,
+            "bitnami": 3,
+            "ghsa": 3,
+            "nvd": 3,
+            "oracle-oval": 2,
+            "photon": 3,
+            "redhat": 2,
+            "rocky": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 8.8
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:L",
+              "V3Score": 7.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:13578",
+            "https://access.redhat.com/security/cve/CVE-2025-47273",
+            "https://bugzilla.redhat.com/2366982",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2366982",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-47273",
+            "https://errata.almalinux.org/9/ALSA-2025-13578.html",
+            "https://errata.rockylinux.org/RLSA-2025:11036",
+            "https://github.com/pypa/advisory-database/tree/main/vulns/setuptools/PYSEC-2025-49.yaml",
+            "https://github.com/pypa/setuptools",
+            "https://github.com/pypa/setuptools/blob/6ead555c5fb29bc57fe6105b1bffc163f56fd558/setuptools/package_index.py#L810C1-L825C88",
+            "https://github.com/pypa/setuptools/commit/250a6d17978f9f6ac3ac887091f2d32886fbbb0b",
+            "https://github.com/pypa/setuptools/issues/4946",
+            "https://github.com/pypa/setuptools/security/advisories/GHSA-5rjg-fvgr-3xxf",
+            "https://linux.oracle.com/cve/CVE-2025-47273.html",
+            "https://linux.oracle.com/errata/ELSA-2025-9940.html",
+            "https://lists.debian.org/debian-lts-announce/2025/05/msg00035.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-47273",
+            "https://ubuntu.com/security/notices/USN-7544-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-47273"
+          ],
+          "PublishedDate": "2025-05-17T16:15:19.11Z",
+          "LastModifiedDate": "2025-06-12T16:29:01.66Z"
+        }
+      ]
+    }
+  ]
+}
