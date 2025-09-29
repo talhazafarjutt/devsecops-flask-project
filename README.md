@@ -1,55 +1,124 @@
-# Secure Flask Application
+# 🔐 DevSecOps Flask Project – Insecure App
 
-This is a secure Flask application with user authentication, note management, and profile features.
+This intentionally vulnerable **Flask application** is created for **educational purposes** in DevSecOps training.  
+It contains multiple security flaws in both the application code and the Dockerfile.  
 
-## Security Features Implemented
+⚠️ **Disclaimer:** Do **not** deploy this app in production. It is meant only for learning and practicing security scanning.
 
-1. **SQL Injection Prevention**: All database queries use parameterized statements
-2. **Input Sanitization**: All user inputs are sanitized to prevent XSS attacks
-3. **Secure Password Handling**: Passwords are hashed using bcrypt
-4. **Docker Security**: Runs as non-root user with minimal permissions
-5. **Secure Docker Image**: Uses Alpine Linux base for minimal attack surface
-6. **Image URL Validation**: Profile image URLs are validated for security
+---
+## 🎯 Learning Goals
 
-## Requirements
+- Identify and fix **common security flaws** in application code and Docker images  
+- Practice **SAST** (Static Application Security Testing) using SonarQube  
+- Run **container security scans** with Trivy  
+- Learn **secrets scanning** with Gitleaks  
+- Build and run a **CI/CD pipeline with GitHub Actions**  
+- Deploy the Flask app through CI/CD pipeline  
+- Set up **application monitoring** with Prometheus & Grafana  
+- Understand **secure coding & containerization best practices**
 
-- Docker
-- Docker Compose
+---
+## 🚩 What's Wrong (On Purpose)
 
-## How to Run
+- Hardcoded credentials in the Flask app  
+- No input validation  
+- Debug route that exposes system commands  
+- Weak session key  
+- Dockerfile uses **unpinned base image**  
+- Container runs as **root user**  
+- Missing healthcheck and cleanup steps  
+
+---
+## 🧪 Tools You’ll Use
+
+- **SonarQube** – Static code analysis (SAST)  
+- **Trivy** – Docker image scanning  
+- **Gitleaks** – Secret detection  
+- **Docker** – Build and run the app  
+- **Git & GitHub** – Version control  
+- **GitHub Actions** – CI/CD automation  
+- **Prometheus & Grafana** – Monitoring and visualization  
+
+---
+
+
+<br><br>
+
+
+
+
+# 📝 Student Tasks – What You Need to Do
+
+Follow these steps to complete the project.  
+(Remember: this app is intentionally insecure, your job is to improve and secure it.)
+
+---
+### 1. Repository Setup
+- Fork this repository into your own GitHub account  
+- Clone your fork locally  
+- Explore the project files (Flask app + Dockerfile)  
 
 ```bash
-# Build and start the application
-docker-compose up --build
+# Step 1: Fork this Repo
+# (click 'Fork' on GitHub and create your own copy)
 
-# The application will be available at http://localhost:5000
+# Step 2: Clone Your Fork
+git clone https://github.com/<your-username>/devsecops-flask-project.git
+cd devsecops-flask-project
+
 ```
 
-## Default Credentials
+---
+### 2. Run Locally
+- Build the Docker image of the app  
+- Run the container and verify it works on [http://localhost:5000](http://localhost:5000)  
+```bash
+# Step 1: Build the Docker Image
+docker build -t devsecops-flask-project .
 
-- **User**: user@evfa.com / StrongPassword123!
-- **Admin**: admin@evfa.com / StrongAdminPassword123!
+# Step 2: Run the App
+docker run -p 5000:5000 devsecops-flask-project
+```
+---
+### 3. Analyze Security Issues
+- Identify insecure practices in the Flask app  
+- Identify insecure practices in the Dockerfile  
+- Write down your observations before fixing  
 
-Registration codes are required to create new accounts. The default static registration code is: `a36e990b-0024-4d55-b74a-f8d7528e1764`
+---
+### 4. Setup CI/CD with GitHub Actions
+- Create a GitHub Actions workflow (`.github/workflows/ci-cd.yml`)  
+- Add the following stages in the pipeline:
+  - **Checkout**: Pull code from your repo  
+  - **Static Code Scan**: Run SonarQube  
+  - **Secrets Scan**: Run Gitleaks  
+  - **Build**: Build Docker image  
+  - **Image Scan**: Run Trivy on the image  
+  - **Push**: Push Docker image to a registry (GitHub Container Registry or DockerHub) (Optional)
+  - **Deploy**: Run the container in your target environment  
 
-## Features
+---
+### 5. Fix Security Issues (Optional)
+- Apply fixes to Flask code (credentials, validation, debug routes, session key, etc.)  
+- Apply fixes to Dockerfile (pin image version, non-root user, healthcheck, cleanup)  
+- Commit and push changes  
+- Re-run pipeline and verify scans show improvements  
 
-- User authentication (login/logout)
-- Note creation and management
-- Profile management with image upload
-- Admin panel for registration code management
-- Dark/light mode toggle
+---
+### 6. Monitoring Setup
+- Deploy **Prometheus** in a container  
+- Deploy **Grafana** in a container  
+- Connect Prometheus as a data source in Grafana  
+- Create two dashboards: one generic monitoring dashboard for system metrics and one Docker monitoring dashboard for container metrics on the server where the application is deployed
 
-## Docker Configuration
+---
+### 7. Final Deliverables
+- WShare the repository URL of a working Flask app deployed via CI/CD  
+- Passing scans in CI/CD (SonarQube, Trivy, Gitleaks)  
+- Running Prometheus + Grafana monitoring stack  
+- Documentation (google doc) of:
+  - Insecure issues found  
+  - Fixes applied  
+  - Screenshots of scans & dashboards  
 
-The application uses a minimal Alpine Linux base image with:
-- Non-root user execution
-- Only necessary packages installed
-- Proper file permissions
-- Multi-stage build process
-
-## Security Notes
-
-- In production, change the SECRET_KEY environment variable
-- Use strong passwords for default accounts
-- Configure ALLOWED_DOMAINS in `utils/profile_image.py` for production image hosting
+---
