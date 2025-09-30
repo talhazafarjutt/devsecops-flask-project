@@ -1,29 +1,29 @@
-FROM python:3.9-alpine
+# Use newer base image with better security
+FROM python:3.11-slim-bookworm
+
+# Update packages and install dependencies in single stage
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential gcc libssl-dev libffi-dev python3-dev \
+    nginx uwsgi uwsgi-plugin-python3 ca-certificates curl \
+    && apt-get upgrade -y \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
 
 # Create non-root user
-RUN addgroup -g 1001 -S uwsgi && \
-    adduser -u 1001 -S uwsgi -G uwsgi
+RUN groupadd --gid 1001 uwsgi && \
+    useradd --uid 1001 --gid uwsgi --create-home --shell /bin/bash uwsgi
 
-# Install system dependencies including build tools for uWSGI
-RUN apk add --no-cache \
-    nginx \
-    uwsgi \
-    uwsgi-python3 \
-    build-base \
-    python3-dev \
-    linux-headers
+# CRITICAL: Upgrade setuptools in SYSTEM Python (not venv) - this is what Trivy scans
+RUN pip install --upgrade pip==24.3.1 setuptools==78.1.1 wheel==0.45.1
 
-# Copy nginx configuration
-COPY conf/nginx.conf /etc/nginx/nginx.conf
+WORKDIR /srv/flask_app
+
+# Copy requirements and install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
 COPY --chown=uwsgi:uwsgi . /srv/flask_app
-
-# Set working directory
-WORKDIR /srv/flask_app
-
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
 
 # Create necessary directories and set permissions
 RUN mkdir -p /var/log/nginx /var/cache/nginx /var/run /tmp /var/lib/nginx/tmp /tmp/client_body_temp /srv/flask_app/database \
@@ -31,11 +31,13 @@ RUN mkdir -p /var/log/nginx /var/cache/nginx /var/run /tmp /var/lib/nginx/tmp /t
     && chown -R uwsgi:uwsgi /srv/flask_app \
     && chmod -R 755 /var/lib/nginx
 
-# Switch to non-root user
 USER uwsgi
 
-# Expose port
 EXPOSE 80
 
-# Start services
-CMD ["sh", "-c", "nginx && uwsgi --ini uwsgi.ini"]
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost/ || exit 1
+
+# Start nginx and uwsgi
+CMD ["sh", "-c", "nginx -g 'daemon off;' & uwsgi --ini uwsgi.ini"]

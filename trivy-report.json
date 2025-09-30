@@ -1,150 +1,156 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-09-29T18:43:51.251464+05:00",
-  "ArtifactName": "devsecops-flask-project-flask_app",
+  "CreatedAt": "2025-09-30T14:10:54.726125+05:00",
+  "ArtifactName": "devsecops-flask-project-flask_app:latest",
   "ArtifactType": "container_image",
   "Metadata": {
-    "Size": 488887808,
+    "Size": 328579072,
     "OS": {
-      "Family": "alpine",
-      "Name": "3.22.1"
+      "Family": "debian",
+      "Name": "12.12"
     },
-    "ImageID": "sha256:c67a6c167f5aef0fb5c3f21b71caf72e1b8534b51510ddb37f86b730ffa8dd57",
+    "ImageID": "sha256:ad03e4e9b2a018bccd2e343ffba8adea560a599d8bd97fd809e7aa4e5e68c85f",
     "DiffIDs": [
-      "sha256:418dccb7d85a63a6aa574439840f7a6fa6fd2321b3e2394568a317735e867d35",
-      "sha256:75ae29d7a84e6d9f90f46281a2507b9cb145528e89e057055ae95b644b64375b",
-      "sha256:5139c09013743f74dce3304d3fb3ac0c09256e746fa6889174352f39f0c4cd3e",
-      "sha256:a8f49dc9b18e1c250ff4db9693f97b10efc415af3adfc79c02ce01492a782f31",
-      "sha256:5aaa340ffa66588c0295507e27cd8ef6553556e78e0026e707f5e96d134e534f",
-      "sha256:596bf44b22fbe1bcb04f82f1530d9c6eb76c40c906ceec2b2fa332885928be6f",
-      "sha256:7f61a0f05067e3be46d11b03217f2bd567e4ba760678886162acd9531e9b5d60",
-      "sha256:1fa99b69a7577845370ac801a0285df26addbd7c156e111743058f09f73a895a",
-      "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
-      "sha256:cf0aa14edd21cf75a6441976eadb05a747134714d5c2cdae22830bebe686df32",
-      "sha256:9e858a166880ef8a7e0d0dbc80378ca408eca2091c20343e4e969f6c32b44f6c"
+      "sha256:36f5f951f60a9fa1d51878e76fc16ba7b752f4d464a21b758a8ac88f0992c488",
+      "sha256:eb692e780898e53201d563483de988504305baf333a0b04eaaf7cc929c94d43d",
+      "sha256:df376b0701daa14d0bccd3b6a9ee3c2f38f0eda094fdfe021fc75726fad0f710",
+      "sha256:d594ad7a27ee431ad704ffa7195fe669e6b3e48504a3291f1a782b61e2ef71b7",
+      "sha256:37d39b2bb2dfc37b2d746f1c1a87ba555dcee3b578a54fa00fd8d13b5f6118b1",
+      "sha256:b3f756ab4eb9f054df3a771ac5bd813abef16507bd2e3f5b9a28cd6fabb4799b",
+      "sha256:b07c3d88e496e1b1c9c39d629b226ed7c8e877d3f18addd0c78f4f5c0fb8ec2d",
+      "sha256:332dcf56f18a0fdea2c83fa5417301920f1f0fe8ac05a23144903efff20b5000",
+      "sha256:83b1d8776240bd1c89726e7876472ab19604568334094efa84fe681376a1a748",
+      "sha256:9b65c2042bc4f9535140e89c73880769882b12207b80ae869567a2cd05f72b08",
+      "sha256:ddb5b7b591f6166bf0ddfd8b28996fd0e80ac0c7b6e5515f09a956fb0ffc496c"
     ],
     "RepoTags": [
       "devsecops-flask-project-flask_app:latest"
     ],
     "RepoDigests": [
-      "devsecops-flask-project-flask_app@sha256:c67a6c167f5aef0fb5c3f21b71caf72e1b8534b51510ddb37f86b730ffa8dd57"
+      "devsecops-flask-project-flask_app@sha256:ad03e4e9b2a018bccd2e343ffba8adea560a599d8bd97fd809e7aa4e5e68c85f"
     ],
     "ImageConfig": {
       "architecture": "amd64",
-      "created": "2025-09-29T12:47:24.974071592Z",
+      "created": "2025-09-30T09:07:35.238713834Z",
       "history": [
         {
-          "created": "2025-06-04T04:24:53Z",
-          "created_by": "ADD alpine-minirootfs-3.22.1-x86_64.tar.gz / # buildkit",
-          "comment": "buildkit.dockerfile.v0"
+          "created": "2025-08-08T18:20:34Z",
+          "created_by": "# debian.sh --arch 'amd64' out/ 'bookworm' '@1757289600'",
+          "comment": "debuerreotype 0.16"
         },
         {
-          "created": "2025-06-04T04:24:53Z",
-          "created_by": "CMD [\"/bin/sh\"]",
-          "comment": "buildkit.dockerfile.v0",
-          "empty_layer": true
-        },
-        {
-          "created": "2025-06-04T04:24:53Z",
+          "created": "2025-08-08T18:20:34Z",
           "created_by": "ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-06-04T04:24:53Z",
+          "created": "2025-08-08T18:20:34Z",
           "created_by": "ENV LANG=C.UTF-8",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-06-04T04:24:53Z",
-          "created_by": "RUN /bin/sh -c set -eux; \tapk add --no-cache \t\tca-certificates \t\ttzdata \t; # buildkit",
+          "created": "2025-08-08T18:20:34Z",
+          "created_by": "RUN /bin/sh -c set -eux; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tca-certificates \t\tnetbase \t\ttzdata \t; \trm -rf /var/lib/apt/lists/* # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-06-04T04:24:53Z",
-          "created_by": "ENV GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568",
+          "created": "2025-08-08T18:20:34Z",
+          "created_by": "ENV GPG_KEY=A035C8C19219BA821ECEA86B64E628F8D684696D",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-06-04T04:24:53Z",
-          "created_by": "ENV PYTHON_VERSION=3.9.23",
+          "created": "2025-08-08T18:20:34Z",
+          "created_by": "ENV PYTHON_VERSION=3.11.13",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-06-04T04:24:53Z",
-          "created_by": "ENV PYTHON_SHA256=61a42919e13d539f7673cf11d1c404380e28e540510860b9d242196e165709c9",
+          "created": "2025-08-08T18:20:34Z",
+          "created_by": "ENV PYTHON_SHA256=8fb5f9fbc7609fa822cb31549884575db7fd9657cbffb89510b5d7975963a83a",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-06-04T04:24:53Z",
-          "created_by": "RUN /bin/sh -c set -eux; \t\tapk add --no-cache --virtual .build-deps \t\tgnupg \t\ttar \t\txz \t\t\t\tbluez-dev \t\tbzip2-dev \t\tdpkg-dev dpkg \t\tfindutils \t\tgcc \t\tgdbm-dev \t\tlibc-dev \t\tlibffi-dev \t\tlibnsl-dev \t\tlibtirpc-dev \t\tlinux-headers \t\tmake \t\tncurses-dev \t\topenssl-dev \t\tpax-utils \t\treadline-dev \t\tsqlite-dev \t\ttcl-dev \t\ttk \t\ttk-dev \t\tutil-linux-dev \t\txz-dev \t\tzlib-dev \t; \t\twget -O python.tar.xz \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz\"; \techo \"$PYTHON_SHA256 *python.tar.xz\" | sha256sum -c -; \twget -O python.tar.xz.asc \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz.asc\"; \tGNUPGHOME=\"$(mktemp -d)\"; export GNUPGHOME; \tgpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$GPG_KEY\"; \tgpg --batch --verify python.tar.xz.asc python.tar.xz; \tgpgconf --kill all; \trm -rf \"$GNUPGHOME\" python.tar.xz.asc; \tmkdir -p /usr/src/python; \ttar --extract --directory /usr/src/python --strip-components=1 --file python.tar.xz; \trm python.tar.xz; \t\tcd /usr/src/python; \tgnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\"; \t./configure \t\t--build=\"$gnuArch\" \t\t--enable-loadable-sqlite-extensions \t\t--enable-option-checking=fatal \t\t--enable-shared \t\t--with-ensurepip \t; \tnproc=\"$(nproc)\"; \tEXTRA_CFLAGS=\"-DTHREAD_STACK_SIZE=0x100000\"; \tLDFLAGS=\"${LDFLAGS:--Wl},--strip-all\"; \tmake -j \"$nproc\" \t\t\"EXTRA_CFLAGS=${EXTRA_CFLAGS:-}\" \t\t\"LDFLAGS=${LDFLAGS:-}\" \t; \trm python; \tmake -j \"$nproc\" \t\t\"EXTRA_CFLAGS=${EXTRA_CFLAGS:-}\" \t\t\"LDFLAGS=${LDFLAGS:--Wl},-rpath='\\$\\$ORIGIN/../lib'\" \t\tpython \t; \tmake install; \t\tcd /; \trm -rf /usr/src/python; \t\tfind /usr/local -depth \t\t\\( \t\t\t\\( -type d -a \\( -name test -o -name tests -o -name idle_test \\) \\) \t\t\t-o \\( -type f -a \\( -name '*.pyc' -o -name '*.pyo' -o -name 'libpython*.a' \\) \\) \t\t\\) -exec rm -rf '{}' + \t; \t\tfind /usr/local -type f -executable -not \\( -name '*tkinter*' \\) -exec scanelf --needed --nobanner --format '%n#p' '{}' ';' \t\t| tr ',' '\\n' \t\t| sort -u \t\t| awk 'system(\"[ -e /usr/local/lib/\" $1 \" ]\") == 0 { next } { print \"so:\" $1 }' \t\t| xargs -rt apk add --no-network --virtual .python-rundeps \t; \tapk del --no-network .build-deps; \t\texport PYTHONDONTWRITEBYTECODE=1; \tpython3 --version; \t\tpip3 install \t\t--disable-pip-version-check \t\t--no-cache-dir \t\t--no-compile \t\t'setuptools==58.1.0' \t\t'wheel\u003c0.46' \t; \tpip3 --version # buildkit",
+          "created": "2025-08-08T18:20:34Z",
+          "created_by": "RUN /bin/sh -c set -eux; \t\tsavedAptMark=\"$(apt-mark showmanual)\"; \tapt-get update; \tapt-get install -y --no-install-recommends \t\tdpkg-dev \t\tgcc \t\tgnupg \t\tlibbluetooth-dev \t\tlibbz2-dev \t\tlibc6-dev \t\tlibdb-dev \t\tlibffi-dev \t\tlibgdbm-dev \t\tliblzma-dev \t\tlibncursesw5-dev \t\tlibreadline-dev \t\tlibsqlite3-dev \t\tlibssl-dev \t\tmake \t\ttk-dev \t\tuuid-dev \t\twget \t\txz-utils \t\tzlib1g-dev \t; \t\twget -O python.tar.xz \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz\"; \techo \"$PYTHON_SHA256 *python.tar.xz\" | sha256sum -c -; \twget -O python.tar.xz.asc \"https://www.python.org/ftp/python/${PYTHON_VERSION%%[a-z]*}/Python-$PYTHON_VERSION.tar.xz.asc\"; \tGNUPGHOME=\"$(mktemp -d)\"; export GNUPGHOME; \tgpg --batch --keyserver hkps://keys.openpgp.org --recv-keys \"$GPG_KEY\"; \tgpg --batch --verify python.tar.xz.asc python.tar.xz; \tgpgconf --kill all; \trm -rf \"$GNUPGHOME\" python.tar.xz.asc; \tmkdir -p /usr/src/python; \ttar --extract --directory /usr/src/python --strip-components=1 --file python.tar.xz; \trm python.tar.xz; \t\tcd /usr/src/python; \tgnuArch=\"$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)\"; \t./configure \t\t--build=\"$gnuArch\" \t\t--enable-loadable-sqlite-extensions \t\t--enable-optimizations \t\t--enable-option-checking=fatal \t\t--enable-shared \t\t$(test \"${gnuArch%%-*}\" != 'riscv64' \u0026\u0026 echo '--with-lto') \t\t--with-ensurepip \t; \tnproc=\"$(nproc)\"; \tEXTRA_CFLAGS=\"$(dpkg-buildflags --get CFLAGS)\"; \tLDFLAGS=\"$(dpkg-buildflags --get LDFLAGS)\"; \tLDFLAGS=\"${LDFLAGS:--Wl},--strip-all\"; \tmake -j \"$nproc\" \t\t\"EXTRA_CFLAGS=${EXTRA_CFLAGS:-}\" \t\t\"LDFLAGS=${LDFLAGS:-}\" \t; \trm python; \tmake -j \"$nproc\" \t\t\"EXTRA_CFLAGS=${EXTRA_CFLAGS:-}\" \t\t\"LDFLAGS=${LDFLAGS:--Wl},-rpath='\\$\\$ORIGIN/../lib'\" \t\tpython \t; \tmake install; \t\tcd /; \trm -rf /usr/src/python; \t\tfind /usr/local -depth \t\t\\( \t\t\t\\( -type d -a \\( -name test -o -name tests -o -name idle_test \\) \\) \t\t\t-o \\( -type f -a \\( -name '*.pyc' -o -name '*.pyo' -o -name 'libpython*.a' \\) \\) \t\t\\) -exec rm -rf '{}' + \t; \t\tldconfig; \t\tapt-mark auto '.*' \u003e /dev/null; \tapt-mark manual $savedAptMark; \tfind /usr/local -type f -executable -not \\( -name '*tkinter*' \\) -exec ldd '{}' ';' \t\t| awk '/=\u003e/ { so = $(NF-1); if (index(so, \"/usr/local/\") == 1) { next }; gsub(\"^/(usr/)?\", \"\", so); printf \"*%s\\n\", so }' \t\t| sort -u \t\t| xargs -rt dpkg-query --search \t\t| awk 'sub(\":$\", \"\", $1) { print $1 }' \t\t| sort -u \t\t| xargs -r apt-mark manual \t; \tapt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \trm -rf /var/lib/apt/lists/*; \t\texport PYTHONDONTWRITEBYTECODE=1; \tpython3 --version; \t\tpip3 install \t\t--disable-pip-version-check \t\t--no-cache-dir \t\t--no-compile \t\t'setuptools==65.5.1' \t\t'wheel\u003c0.46' \t; \tpip3 --version # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-06-04T04:24:53Z",
+          "created": "2025-08-08T18:20:34Z",
           "created_by": "RUN /bin/sh -c set -eux; \tfor src in idle3 pip3 pydoc3 python3 python3-config; do \t\tdst=\"$(echo \"$src\" | tr -d 3)\"; \t\t[ -s \"/usr/local/bin/$src\" ]; \t\t[ ! -e \"/usr/local/bin/$dst\" ]; \t\tln -svT \"$src\" \"/usr/local/bin/$dst\"; \tdone # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-06-04T04:24:53Z",
+          "created": "2025-08-08T18:20:34Z",
           "created_by": "CMD [\"python3\"]",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-09-29T12:45:01Z",
-          "created_by": "RUN /bin/sh -c addgroup -g 1001 -S uwsgi \u0026\u0026     adduser -u 1001 -S uwsgi -G uwsgi # buildkit",
+          "created": "2025-09-30T09:05:44Z",
+          "created_by": "RUN /bin/sh -c apt-get update \u0026\u0026 apt-get install -y --no-install-recommends     nginx uwsgi uwsgi-plugin-python3 ca-certificates curl     \u0026\u0026 apt-get upgrade -y     \u0026\u0026 rm -rf /var/lib/apt/lists/*     \u0026\u0026 apt-get clean # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-09-29T12:46:28Z",
-          "created_by": "RUN /bin/sh -c apk add --no-cache     nginx     uwsgi     uwsgi-python3     build-base     python3-dev     linux-headers # buildkit",
+          "created": "2025-09-30T09:05:44Z",
+          "created_by": "RUN /bin/sh -c groupadd --gid 1001 uwsgi \u0026\u0026     useradd --uid 1001 --gid uwsgi --create-home --shell /bin/bash uwsgi # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-09-29T12:46:28Z",
-          "created_by": "COPY conf/nginx.conf /etc/nginx/nginx.conf # buildkit",
+          "created": "2025-09-30T09:07:31Z",
+          "created_by": "COPY /opt/venv /opt/venv # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-09-29T12:46:28Z",
-          "created_by": "COPY --chown=uwsgi:uwsgi . /srv/flask_app # buildkit",
+          "created": "2025-09-30T09:07:34Z",
+          "created_by": "ENV PATH=/opt/venv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-09-30T09:07:34Z",
+          "created_by": "RUN /bin/sh -c /opt/venv/bin/pip install --upgrade setuptools==78.1.1 # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-09-29T12:46:29Z",
+          "created": "2025-09-30T09:07:34Z",
           "created_by": "WORKDIR /srv/flask_app",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-09-29T12:47:24Z",
-          "created_by": "RUN /bin/sh -c pip install --no-cache-dir -r requirements.txt # buildkit",
+          "created": "2025-09-30T09:07:34Z",
+          "created_by": "COPY --chown=uwsgi:uwsgi . /srv/flask_app # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-09-29T12:47:24Z",
+          "created": "2025-09-30T09:07:35Z",
           "created_by": "RUN /bin/sh -c mkdir -p /var/log/nginx /var/cache/nginx /var/run /tmp /var/lib/nginx/tmp /tmp/client_body_temp /srv/flask_app/database     \u0026\u0026 chown -R uwsgi:uwsgi /var/log/nginx /var/cache/nginx /var/run /tmp /var/lib/nginx /tmp/client_body_temp /srv/flask_app/database     \u0026\u0026 chown -R uwsgi:uwsgi /srv/flask_app     \u0026\u0026 chmod -R 755 /var/lib/nginx # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-09-29T12:47:24Z",
+          "created": "2025-09-30T09:07:35Z",
           "created_by": "USER uwsgi",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-09-29T12:47:24Z",
-          "created_by": "EXPOSE \u0026{[{{38 0} {38 0}}] 0xc0008a0600}",
+          "created": "2025-09-30T09:07:35Z",
+          "created_by": "EXPOSE \u0026{[{{54 0} {54 0}}] 0xc00072f5c0}",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-09-29T12:47:24Z",
-          "created_by": "CMD [\"sh\" \"-c\" \"nginx \u0026\u0026 uwsgi --ini uwsgi.ini\"]",
+          "created": "2025-09-30T09:07:35Z",
+          "created_by": "HEALTHCHECK \u0026{[\"CMD-SHELL\" \"curl -f http://localhost/ || exit 1\"] \"30s\" \"3s\" \"5s\" \"0s\" '\\x03'}",
+          "comment": "buildkit.dockerfile.v0",
+          "empty_layer": true
+        },
+        {
+          "created": "2025-09-30T09:07:35Z",
+          "created_by": "CMD [\"sh\" \"-c\" \"nginx -g 'daemon off;' \u0026 uwsgi --ini uwsgi.ini\"]",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         }
@@ -153,37 +159,42 @@
       "rootfs": {
         "type": "layers",
         "diff_ids": [
-          "sha256:418dccb7d85a63a6aa574439840f7a6fa6fd2321b3e2394568a317735e867d35",
-          "sha256:75ae29d7a84e6d9f90f46281a2507b9cb145528e89e057055ae95b644b64375b",
-          "sha256:5139c09013743f74dce3304d3fb3ac0c09256e746fa6889174352f39f0c4cd3e",
-          "sha256:a8f49dc9b18e1c250ff4db9693f97b10efc415af3adfc79c02ce01492a782f31",
-          "sha256:5aaa340ffa66588c0295507e27cd8ef6553556e78e0026e707f5e96d134e534f",
-          "sha256:596bf44b22fbe1bcb04f82f1530d9c6eb76c40c906ceec2b2fa332885928be6f",
-          "sha256:7f61a0f05067e3be46d11b03217f2bd567e4ba760678886162acd9531e9b5d60",
-          "sha256:1fa99b69a7577845370ac801a0285df26addbd7c156e111743058f09f73a895a",
-          "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
-          "sha256:cf0aa14edd21cf75a6441976eadb05a747134714d5c2cdae22830bebe686df32",
-          "sha256:9e858a166880ef8a7e0d0dbc80378ca408eca2091c20343e4e969f6c32b44f6c"
+          "sha256:36f5f951f60a9fa1d51878e76fc16ba7b752f4d464a21b758a8ac88f0992c488",
+          "sha256:eb692e780898e53201d563483de988504305baf333a0b04eaaf7cc929c94d43d",
+          "sha256:df376b0701daa14d0bccd3b6a9ee3c2f38f0eda094fdfe021fc75726fad0f710",
+          "sha256:d594ad7a27ee431ad704ffa7195fe669e6b3e48504a3291f1a782b61e2ef71b7",
+          "sha256:37d39b2bb2dfc37b2d746f1c1a87ba555dcee3b578a54fa00fd8d13b5f6118b1",
+          "sha256:b3f756ab4eb9f054df3a771ac5bd813abef16507bd2e3f5b9a28cd6fabb4799b",
+          "sha256:b07c3d88e496e1b1c9c39d629b226ed7c8e877d3f18addd0c78f4f5c0fb8ec2d",
+          "sha256:332dcf56f18a0fdea2c83fa5417301920f1f0fe8ac05a23144903efff20b5000",
+          "sha256:83b1d8776240bd1c89726e7876472ab19604568334094efa84fe681376a1a748",
+          "sha256:9b65c2042bc4f9535140e89c73880769882b12207b80ae869567a2cd05f72b08",
+          "sha256:ddb5b7b591f6166bf0ddfd8b28996fd0e80ac0c7b6e5515f09a956fb0ffc496c"
         ]
       },
       "config": {
         "Cmd": [
           "sh",
           "-c",
-          "nginx \u0026\u0026 uwsgi --ini uwsgi.ini"
+          "nginx -g 'daemon off;' \u0026 uwsgi --ini uwsgi.ini"
         ],
-        "Env": [
-          "PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-          "LANG=C.UTF-8",
-          "GPG_KEY=E3FF2839C048B25C084DEBE9B26995E310250568",
-          "PYTHON_VERSION=3.9.23",
-          "PYTHON_SHA256=61a42919e13d539f7673cf11d1c404380e28e540510860b9d242196e165709c9"
-        ],
-        "Labels": {
-          "com.docker.compose.project": "devsecops-flask-project",
-          "com.docker.compose.service": "flask_app",
-          "com.docker.compose.version": "2.39.2"
+        "Healthcheck": {
+          "Test": [
+            "CMD-SHELL",
+            "curl -f http://localhost/ || exit 1"
+          ],
+          "Interval": 30000000000,
+          "Timeout": 3000000000,
+          "StartPeriod": 5000000000,
+          "Retries": 3
         },
+        "Env": [
+          "PATH=/opt/venv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "LANG=C.UTF-8",
+          "GPG_KEY=A035C8C19219BA821ECEA86B64E628F8D684696D",
+          "PYTHON_VERSION=3.11.13",
+          "PYTHON_SHA256=8fb5f9fbc7609fa822cb31549884575db7fd9657cbffb89510b5d7975963a83a"
+        ],
         "User": "uwsgi",
         "WorkingDir": "/srv/flask_app",
         "ExposedPorts": {
@@ -194,137 +205,877 @@
     },
     "Layers": [
       {
-        "Size": 8596480,
-        "Digest": "sha256:9824c27679d3b27c5e1cb00a73adb6f4f8d556994111c12db3c5d61a0c843df8",
-        "DiffID": "sha256:418dccb7d85a63a6aa574439840f7a6fa6fd2321b3e2394568a317735e867d35"
+        "Size": 77885440,
+        "Digest": "sha256:d107e437f7299a0db6425d4e37f44fa779f7917ecc8daf1e87128ee91b9ed3d3",
+        "DiffID": "sha256:36f5f951f60a9fa1d51878e76fc16ba7b752f4d464a21b758a8ac88f0992c488"
       },
       {
-        "Size": 1656320,
-        "Digest": "sha256:696282ba7530403087147a86e1fd4c2b83d3507ff200fa6f1e58db0004f89010",
-        "DiffID": "sha256:75ae29d7a84e6d9f90f46281a2507b9cb145528e89e057055ae95b644b64375b"
+        "Size": 9566208,
+        "Digest": "sha256:659036234d55530e79967882c63b6651a89d9a084db1d199667c89aba8ae0d6a",
+        "DiffID": "sha256:eb692e780898e53201d563483de988504305baf333a0b04eaaf7cc929c94d43d"
       },
       {
-        "Size": 41994240,
-        "Digest": "sha256:d325733a625202bb5fe7304c973b984f63bebdb83f9fb2c56c7cb769e7d9e459",
-        "DiffID": "sha256:5139c09013743f74dce3304d3fb3ac0c09256e746fa6889174352f39f0c4cd3e"
+        "Size": 47518208,
+        "Digest": "sha256:1ce95d9ae66c3a66005c77070f890e4c204da3d18bf869dbee0ae7bf76702c74",
+        "DiffID": "sha256:df376b0701daa14d0bccd3b6a9ee3c2f38f0eda094fdfe021fc75726fad0f710"
       },
       {
         "Size": 5120,
-        "Digest": "sha256:e9a57d92e270674b2a656977030520f3b8e3047191a8cd973cc3626969bc7bb2",
-        "DiffID": "sha256:a8f49dc9b18e1c250ff4db9693f97b10efc415af3adfc79c02ce01492a782f31"
+        "Digest": "sha256:ce4392d9860420c9e312ca57b9c8e92e5738f2fac005217c10a7285179be3901",
+        "DiffID": "sha256:d594ad7a27ee431ad704ffa7195fe669e6b3e48504a3291f1a782b61e2ef71b7"
       },
       {
-        "Size": 10752,
-        "Digest": "sha256:8261fe364d0b7fe7d2a2b1a3feee8561f5f7194535b7ab0515f89ec77ecea3cf",
-        "DiffID": "sha256:5aaa340ffa66588c0295507e27cd8ef6553556e78e0026e707f5e96d134e534f"
+        "Size": 77514240,
+        "Digest": "sha256:1978fe71049fb16033ca77b1cf5980ab759cfaecec42586a8ec64ff29fdd0717",
+        "DiffID": "sha256:37d39b2bb2dfc37b2d746f1c1a87ba555dcee3b578a54fa00fd8d13b5f6118b1"
       },
       {
-        "Size": 343532032,
-        "Digest": "sha256:d2b148898f7bf35fbf81810f2594c46dc18f994a3616c1433e7cc700e048080f",
-        "DiffID": "sha256:596bf44b22fbe1bcb04f82f1530d9c6eb76c40c906ceec2b2fa332885928be6f"
+        "Size": 21504,
+        "Digest": "sha256:f211d74f68f4c3c8f297108ca0ea2930513414ce6852589bace3adcccdf83015",
+        "DiffID": "sha256:b3f756ab4eb9f054df3a771ac5bd813abef16507bd2e3f5b9a28cd6fabb4799b"
       },
       {
-        "Size": 3584,
-        "Digest": "sha256:8ac570929653820eff804a6fb320217e4c384c52a0cb5a9f2ebfd5078d69a150",
-        "DiffID": "sha256:7f61a0f05067e3be46d11b03217f2bd567e4ba760678886162acd9531e9b5d60"
+        "Size": 110543872,
+        "Digest": "sha256:48b669079746fca767c30dc0f3cd91185db7f2d7a9a7c5de4f3aa88aebc85b4f",
+        "DiffID": "sha256:b07c3d88e496e1b1c9c39d629b226ed7c8e877d3f18addd0c78f4f5c0fb8ec2d"
       },
       {
-        "Size": 518144,
-        "Digest": "sha256:3da2566ff7cd9ab5e9b1e95824be0cc9bd23798717fbe4f340192fbdff276d80",
-        "DiffID": "sha256:1fa99b69a7577845370ac801a0285df26addbd7c156e111743058f09f73a895a"
+        "Size": 4930560,
+        "Digest": "sha256:7f0e24e59e04600b290638cbb6f3a41e2c4348dc3f18462d7761000d4fd75b9a",
+        "DiffID": "sha256:332dcf56f18a0fdea2c83fa5417301920f1f0fe8ac05a23144903efff20b5000"
       },
       {
-        "Size": 1024,
-        "Digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
-        "DiffID": "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+        "Size": 2048,
+        "Digest": "sha256:9fedd2d519a87683c3f09d4b659ab16ecdcc25273248b72b42701094f3f2605f",
+        "DiffID": "sha256:83b1d8776240bd1c89726e7876472ab19604568334094efa84fe681376a1a748"
       },
       {
-        "Size": 92282880,
-        "Digest": "sha256:0d5aa0e2b159898353a72aa17eb468f87ab78226a7b9ada742ba4bbd39d9a7ff",
-        "DiffID": "sha256:cf0aa14edd21cf75a6441976eadb05a747134714d5c2cdae22830bebe686df32"
+        "Size": 583168,
+        "Digest": "sha256:6591eddec8fad0f2a3d8f056d2a4b3dd610a845ada8708d7709dd31aa8b7be06",
+        "DiffID": "sha256:9b65c2042bc4f9535140e89c73880769882b12207b80ae869567a2cd05f72b08"
       },
       {
-        "Size": 287232,
-        "Digest": "sha256:5424680b6853e68a2d71f1d668b9300cf53cba81ff2bd462863c4f4a4e44a77a",
-        "DiffID": "sha256:9e858a166880ef8a7e0d0dbc80378ca408eca2091c20343e4e969f6c32b44f6c"
+        "Size": 8704,
+        "Digest": "sha256:6f77fdc807f3e31d0d490865635c5ae432fdb58589a9ed3722994b8c0b64041f",
+        "DiffID": "sha256:ddb5b7b591f6166bf0ddfd8b28996fd0e80ac0c7b6e5515f09a956fb0ffc496c"
       }
     ]
   },
   "Results": [
     {
-      "Target": "devsecops-flask-project-flask_app (alpine 3.22.1)",
+      "Target": "devsecops-flask-project-flask_app:latest (debian 12.12)",
       "Class": "os-pkgs",
-      "Type": "alpine",
+      "Type": "debian",
       "Vulnerabilities": [
         {
-          "VulnerabilityID": "CVE-2025-6965",
-          "PkgID": "sqlite-libs@3.49.2-r0",
-          "PkgName": "sqlite-libs",
+          "VulnerabilityID": "CVE-2025-59375",
+          "PkgID": "libexpat1@2.5.0-1+deb12u2",
+          "PkgName": "libexpat1",
           "PkgIdentifier": {
-            "PURL": "pkg:apk/alpine/sqlite-libs@3.49.2-r0?arch=x86_64\u0026distro=3.22.1",
-            "UID": "28d34c399b712b02"
+            "PURL": "pkg:deb/debian/libexpat1@2.5.0-1%2Bdeb12u2?arch=amd64\u0026distro=debian-12.12",
+            "UID": "fb1f5da85255c44d"
           },
-          "InstalledVersion": "3.49.2-r0",
-          "FixedVersion": "3.49.2-r1",
-          "Status": "fixed",
+          "InstalledVersion": "2.5.0-1+deb12u2",
+          "Status": "affected",
           "Layer": {
-            "Digest": "sha256:d325733a625202bb5fe7304c973b984f63bebdb83f9fb2c56c7cb769e7d9e459",
-            "DiffID": "sha256:5139c09013743f74dce3304d3fb3ac0c09256e746fa6889174352f39f0c4cd3e"
+            "Digest": "sha256:1978fe71049fb16033ca77b1cf5980ab759cfaecec42586a8ec64ff29fdd0717",
+            "DiffID": "sha256:37d39b2bb2dfc37b2d746f1c1a87ba555dcee3b578a54fa00fd8d13b5f6118b1"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-59375",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "expat: libexpat in Expat allows attackers to trigger large dynamic memory allocations via a small document that is submitted for parsing",
+          "Description": "libexpat in Expat before 2.7.2 allows attackers to trigger large dynamic memory allocations via a small document that is submitted for parsing.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-770"
+          ],
+          "VendorSeverity": {
+            "redhat": 3
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-59375",
+            "https://github.com/libexpat/libexpat/blob/676a4c531ec768732fac215da9730b5f50fbd2bf/expat/Changes#L45-L74",
+            "https://github.com/libexpat/libexpat/blob/R_2_7_2/expat/Changes",
+            "https://github.com/libexpat/libexpat/issues/1018",
+            "https://github.com/libexpat/libexpat/pull/1034",
+            "https://issues.oss-fuzz.com/issues/439133977",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-59375",
+            "https://www.cve.org/CVERecord?id=CVE-2025-59375"
+          ],
+          "PublishedDate": "2025-09-15T03:15:40.92Z",
+          "LastModifiedDate": "2025-09-17T14:15:40.913Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-2953",
+          "PkgID": "libldap-2.5-0@2.5.13+dfsg-5",
+          "PkgName": "libldap-2.5-0",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libldap-2.5-0@2.5.13%2Bdfsg-5?arch=amd64\u0026distro=debian-12.12",
+            "UID": "ecc30cc141e7a728"
+          },
+          "InstalledVersion": "2.5.13+dfsg-5",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:1978fe71049fb16033ca77b1cf5980ab759cfaecec42586a8ec64ff29fdd0717",
+            "DiffID": "sha256:37d39b2bb2dfc37b2d746f1c1a87ba555dcee3b578a54fa00fd8d13b5f6118b1"
           },
           "SeveritySource": "nvd",
-          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-6965",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-2953",
           "DataSource": {
-            "ID": "alpine",
-            "Name": "Alpine Secdb",
-            "URL": "https://secdb.alpinelinux.org/"
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
-          "Title": "sqlite: Integer Truncation in SQLite",
-          "Description": "There exists a vulnerability in SQLite versions before 3.50.2 where the number of aggregate terms could exceed the number of columns available. This could lead to a memory corruption issue. We recommend upgrading to version 3.50.2 or above.",
-          "Severity": "CRITICAL",
+          "Title": "openldap: null pointer dereference in  ber_memalloc_x  function",
+          "Description": "A vulnerability was found in openldap. This security flaw causes a null pointer dereference in ber_memalloc_x() function.",
+          "Severity": "HIGH",
           "CweIDs": [
-            "CWE-197"
+            "CWE-476"
+          ],
+          "VendorSeverity": {
+            "alma": 1,
+            "amazon": 2,
+            "bitnami": 3,
+            "cbl-mariner": 3,
+            "nvd": 3,
+            "oracle-oval": 1,
+            "photon": 3,
+            "redhat": 1,
+            "rocky": 1,
+            "ubuntu": 1
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:H",
+              "V3Score": 7.1
+            }
+          },
+          "References": [
+            "http://seclists.org/fulldisclosure/2023/Jul/47",
+            "http://seclists.org/fulldisclosure/2023/Jul/48",
+            "http://seclists.org/fulldisclosure/2023/Jul/52",
+            "https://access.redhat.com/errata/RHSA-2024:4264",
+            "https://access.redhat.com/security/cve/CVE-2023-2953",
+            "https://bugs.openldap.org/show_bug.cgi?id=9904",
+            "https://bugzilla.redhat.com/2210651",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2210651",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2953",
+            "https://errata.almalinux.org/8/ALSA-2024-4264.html",
+            "https://errata.rockylinux.org/RLSA-2024:4264",
+            "https://linux.oracle.com/cve/CVE-2023-2953.html",
+            "https://linux.oracle.com/errata/ELSA-2024-4264.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-2953",
+            "https://security.netapp.com/advisory/ntap-20230703-0005/",
+            "https://support.apple.com/kb/HT213843",
+            "https://support.apple.com/kb/HT213844",
+            "https://support.apple.com/kb/HT213845",
+            "https://ubuntu.com/security/notices/USN-6197-1",
+            "https://ubuntu.com/security/notices/USN-6616-1",
+            "https://www.cve.org/CVERecord?id=CVE-2023-2953"
+          ],
+          "PublishedDate": "2023-05-30T22:15:10.613Z",
+          "LastModifiedDate": "2025-01-10T22:15:23.557Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-6020",
+          "PkgID": "libpam-modules@1.5.2-6+deb12u1",
+          "PkgName": "libpam-modules",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libpam-modules@1.5.2-6%2Bdeb12u1?arch=amd64\u0026distro=debian-12.12",
+            "UID": "854c4c35b318f724"
+          },
+          "InstalledVersion": "1.5.2-6+deb12u1",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:d107e437f7299a0db6425d4e37f44fa779f7917ecc8daf1e87128ee91b9ed3d3",
+            "DiffID": "sha256:36f5f951f60a9fa1d51878e76fc16ba7b752f4d464a21b758a8ac88f0992c488"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-6020",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "linux-pam: Linux-pam directory Traversal",
+          "Description": "A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevate their privileges to root via multiple symlink attacks and race conditions.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-22"
           ],
           "VendorSeverity": {
             "alma": 3,
             "amazon": 2,
             "azure": 3,
-            "bitnami": 3,
             "cbl-mariner": 3,
-            "nvd": 4,
             "oracle-oval": 3,
-            "photon": 4,
             "redhat": 3,
             "rocky": 3,
             "ubuntu": 2
           },
           "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/06/17/1",
+            "https://access.redhat.com/errata/RHSA-2025:10024",
+            "https://access.redhat.com/errata/RHSA-2025:10027",
+            "https://access.redhat.com/errata/RHSA-2025:10180",
+            "https://access.redhat.com/errata/RHSA-2025:10354",
+            "https://access.redhat.com/errata/RHSA-2025:10357",
+            "https://access.redhat.com/errata/RHSA-2025:10358",
+            "https://access.redhat.com/errata/RHSA-2025:10359",
+            "https://access.redhat.com/errata/RHSA-2025:10361",
+            "https://access.redhat.com/errata/RHSA-2025:10362",
+            "https://access.redhat.com/errata/RHSA-2025:10735",
+            "https://access.redhat.com/errata/RHSA-2025:10823",
+            "https://access.redhat.com/errata/RHSA-2025:11386",
+            "https://access.redhat.com/errata/RHSA-2025:11487",
+            "https://access.redhat.com/errata/RHSA-2025:14557",
+            "https://access.redhat.com/errata/RHSA-2025:15099",
+            "https://access.redhat.com/errata/RHSA-2025:15709",
+            "https://access.redhat.com/errata/RHSA-2025:15827",
+            "https://access.redhat.com/errata/RHSA-2025:15828",
+            "https://access.redhat.com/errata/RHSA-2025:16524",
+            "https://access.redhat.com/errata/RHSA-2025:9526",
+            "https://access.redhat.com/security/cve/CVE-2025-6020",
+            "https://bugzilla.redhat.com/2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://linux.oracle.com/cve/CVE-2025-6020.html",
+            "https://linux.oracle.com/errata/ELSA-2025-9526.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-6020",
+            "https://ubuntu.com/security/notices/USN-7580-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-6020",
+            "https://www.openwall.com/lists/oss-security/2025/06/17/1"
+          ],
+          "PublishedDate": "2025-06-17T13:15:21.66Z",
+          "LastModifiedDate": "2025-09-23T20:15:33.53Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-6020",
+          "PkgID": "libpam-modules-bin@1.5.2-6+deb12u1",
+          "PkgName": "libpam-modules-bin",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libpam-modules-bin@1.5.2-6%2Bdeb12u1?arch=amd64\u0026distro=debian-12.12",
+            "UID": "daab75fb9dca86e0"
+          },
+          "InstalledVersion": "1.5.2-6+deb12u1",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:d107e437f7299a0db6425d4e37f44fa779f7917ecc8daf1e87128ee91b9ed3d3",
+            "DiffID": "sha256:36f5f951f60a9fa1d51878e76fc16ba7b752f4d464a21b758a8ac88f0992c488"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-6020",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "linux-pam: Linux-pam directory Traversal",
+          "Description": "A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevate their privileges to root via multiple symlink attacks and race conditions.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-22"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 2,
+            "azure": 3,
+            "cbl-mariner": 3,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/06/17/1",
+            "https://access.redhat.com/errata/RHSA-2025:10024",
+            "https://access.redhat.com/errata/RHSA-2025:10027",
+            "https://access.redhat.com/errata/RHSA-2025:10180",
+            "https://access.redhat.com/errata/RHSA-2025:10354",
+            "https://access.redhat.com/errata/RHSA-2025:10357",
+            "https://access.redhat.com/errata/RHSA-2025:10358",
+            "https://access.redhat.com/errata/RHSA-2025:10359",
+            "https://access.redhat.com/errata/RHSA-2025:10361",
+            "https://access.redhat.com/errata/RHSA-2025:10362",
+            "https://access.redhat.com/errata/RHSA-2025:10735",
+            "https://access.redhat.com/errata/RHSA-2025:10823",
+            "https://access.redhat.com/errata/RHSA-2025:11386",
+            "https://access.redhat.com/errata/RHSA-2025:11487",
+            "https://access.redhat.com/errata/RHSA-2025:14557",
+            "https://access.redhat.com/errata/RHSA-2025:15099",
+            "https://access.redhat.com/errata/RHSA-2025:15709",
+            "https://access.redhat.com/errata/RHSA-2025:15827",
+            "https://access.redhat.com/errata/RHSA-2025:15828",
+            "https://access.redhat.com/errata/RHSA-2025:16524",
+            "https://access.redhat.com/errata/RHSA-2025:9526",
+            "https://access.redhat.com/security/cve/CVE-2025-6020",
+            "https://bugzilla.redhat.com/2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://linux.oracle.com/cve/CVE-2025-6020.html",
+            "https://linux.oracle.com/errata/ELSA-2025-9526.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-6020",
+            "https://ubuntu.com/security/notices/USN-7580-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-6020",
+            "https://www.openwall.com/lists/oss-security/2025/06/17/1"
+          ],
+          "PublishedDate": "2025-06-17T13:15:21.66Z",
+          "LastModifiedDate": "2025-09-23T20:15:33.53Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-6020",
+          "PkgID": "libpam-runtime@1.5.2-6+deb12u1",
+          "PkgName": "libpam-runtime",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libpam-runtime@1.5.2-6%2Bdeb12u1?arch=all\u0026distro=debian-12.12",
+            "UID": "a4ba3bc9ed7e203b"
+          },
+          "InstalledVersion": "1.5.2-6+deb12u1",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:d107e437f7299a0db6425d4e37f44fa779f7917ecc8daf1e87128ee91b9ed3d3",
+            "DiffID": "sha256:36f5f951f60a9fa1d51878e76fc16ba7b752f4d464a21b758a8ac88f0992c488"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-6020",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "linux-pam: Linux-pam directory Traversal",
+          "Description": "A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevate their privileges to root via multiple symlink attacks and race conditions.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-22"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 2,
+            "azure": 3,
+            "cbl-mariner": 3,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/06/17/1",
+            "https://access.redhat.com/errata/RHSA-2025:10024",
+            "https://access.redhat.com/errata/RHSA-2025:10027",
+            "https://access.redhat.com/errata/RHSA-2025:10180",
+            "https://access.redhat.com/errata/RHSA-2025:10354",
+            "https://access.redhat.com/errata/RHSA-2025:10357",
+            "https://access.redhat.com/errata/RHSA-2025:10358",
+            "https://access.redhat.com/errata/RHSA-2025:10359",
+            "https://access.redhat.com/errata/RHSA-2025:10361",
+            "https://access.redhat.com/errata/RHSA-2025:10362",
+            "https://access.redhat.com/errata/RHSA-2025:10735",
+            "https://access.redhat.com/errata/RHSA-2025:10823",
+            "https://access.redhat.com/errata/RHSA-2025:11386",
+            "https://access.redhat.com/errata/RHSA-2025:11487",
+            "https://access.redhat.com/errata/RHSA-2025:14557",
+            "https://access.redhat.com/errata/RHSA-2025:15099",
+            "https://access.redhat.com/errata/RHSA-2025:15709",
+            "https://access.redhat.com/errata/RHSA-2025:15827",
+            "https://access.redhat.com/errata/RHSA-2025:15828",
+            "https://access.redhat.com/errata/RHSA-2025:16524",
+            "https://access.redhat.com/errata/RHSA-2025:9526",
+            "https://access.redhat.com/security/cve/CVE-2025-6020",
+            "https://bugzilla.redhat.com/2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://linux.oracle.com/cve/CVE-2025-6020.html",
+            "https://linux.oracle.com/errata/ELSA-2025-9526.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-6020",
+            "https://ubuntu.com/security/notices/USN-7580-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-6020",
+            "https://www.openwall.com/lists/oss-security/2025/06/17/1"
+          ],
+          "PublishedDate": "2025-06-17T13:15:21.66Z",
+          "LastModifiedDate": "2025-09-23T20:15:33.53Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-6020",
+          "PkgID": "libpam0g@1.5.2-6+deb12u1",
+          "PkgName": "libpam0g",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libpam0g@1.5.2-6%2Bdeb12u1?arch=amd64\u0026distro=debian-12.12",
+            "UID": "75408269dcf74277"
+          },
+          "InstalledVersion": "1.5.2-6+deb12u1",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:d107e437f7299a0db6425d4e37f44fa779f7917ecc8daf1e87128ee91b9ed3d3",
+            "DiffID": "sha256:36f5f951f60a9fa1d51878e76fc16ba7b752f4d464a21b758a8ac88f0992c488"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-6020",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "linux-pam: Linux-pam directory Traversal",
+          "Description": "A flaw was found in linux-pam. The module pam_namespace may use access user-controlled paths without proper protection, allowing local users to elevate their privileges to root via multiple symlink attacks and race conditions.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-22"
+          ],
+          "VendorSeverity": {
+            "alma": 3,
+            "amazon": 2,
+            "azure": 3,
+            "cbl-mariner": 3,
+            "oracle-oval": 3,
+            "redhat": 3,
+            "rocky": 3,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 7.8
+            }
+          },
+          "References": [
+            "http://www.openwall.com/lists/oss-security/2025/06/17/1",
+            "https://access.redhat.com/errata/RHSA-2025:10024",
+            "https://access.redhat.com/errata/RHSA-2025:10027",
+            "https://access.redhat.com/errata/RHSA-2025:10180",
+            "https://access.redhat.com/errata/RHSA-2025:10354",
+            "https://access.redhat.com/errata/RHSA-2025:10357",
+            "https://access.redhat.com/errata/RHSA-2025:10358",
+            "https://access.redhat.com/errata/RHSA-2025:10359",
+            "https://access.redhat.com/errata/RHSA-2025:10361",
+            "https://access.redhat.com/errata/RHSA-2025:10362",
+            "https://access.redhat.com/errata/RHSA-2025:10735",
+            "https://access.redhat.com/errata/RHSA-2025:10823",
+            "https://access.redhat.com/errata/RHSA-2025:11386",
+            "https://access.redhat.com/errata/RHSA-2025:11487",
+            "https://access.redhat.com/errata/RHSA-2025:14557",
+            "https://access.redhat.com/errata/RHSA-2025:15099",
+            "https://access.redhat.com/errata/RHSA-2025:15709",
+            "https://access.redhat.com/errata/RHSA-2025:15827",
+            "https://access.redhat.com/errata/RHSA-2025:15828",
+            "https://access.redhat.com/errata/RHSA-2025:16524",
+            "https://access.redhat.com/errata/RHSA-2025:9526",
+            "https://access.redhat.com/security/cve/CVE-2025-6020",
+            "https://bugzilla.redhat.com/2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2372512",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2388220",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6020",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8941",
+            "https://errata.almalinux.org/9/ALSA-2025-9526.html",
+            "https://errata.rockylinux.org/RLSA-2025:14557",
+            "https://linux.oracle.com/cve/CVE-2025-6020.html",
+            "https://linux.oracle.com/errata/ELSA-2025-9526.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-6020",
+            "https://ubuntu.com/security/notices/USN-7580-1",
+            "https://www.cve.org/CVERecord?id=CVE-2025-6020",
+            "https://www.openwall.com/lists/oss-security/2025/06/17/1"
+          ],
+          "PublishedDate": "2025-06-17T13:15:21.66Z",
+          "LastModifiedDate": "2025-09-23T20:15:33.53Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-8194",
+          "PkgID": "libpython3.11@3.11.2-6+deb12u6",
+          "PkgName": "libpython3.11",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libpython3.11@3.11.2-6%2Bdeb12u6?arch=amd64\u0026distro=debian-12.12",
+            "UID": "1c952d8f115058c7"
+          },
+          "InstalledVersion": "3.11.2-6+deb12u6",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:1978fe71049fb16033ca77b1cf5980ab759cfaecec42586a8ec64ff29fdd0717",
+            "DiffID": "sha256:37d39b2bb2dfc37b2d746f1c1a87ba555dcee3b578a54fa00fd8d13b5f6118b1"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-8194",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "cpython: Cpython infinite loop when parsing a tarfile",
+          "Description": "There is a defect in the CPython “tarfile” module affecting the “TarFile” extraction and entry enumeration APIs. The tar implementation would process tar archives with negative offsets without error, resulting in an infinite loop and deadlock during the parsing of maliciously crafted tar archives. \n\nThis vulnerability can be mitigated by including the following patch after importing the “tarfile” module:  https://gist.github.com/sethmlarson/1716ac5b82b73dbcbf23ad2eff8b33e1",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-835"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "amazon": 3,
+            "azure": 3,
+            "bitnami": 3,
+            "oracle-oval": 2,
+            "redhat": 2,
+            "rocky": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:14900",
+            "https://access.redhat.com/security/cve/CVE-2025-8194",
+            "https://bugzilla.redhat.com/2366982",
+            "https://bugzilla.redhat.com/2384043",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2384043",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8194",
+            "https://errata.almalinux.org/8/ALSA-2025-14900.html",
+            "https://errata.rockylinux.org/RLSA-2025:14841",
+            "https://gist.github.com/sethmlarson/1716ac5b82b73dbcbf23ad2eff8b33e1",
+            "https://github.com/python/cpython/commit/57f5981d6260ed21266e0c26951b8564cc252bc2",
+            "https://github.com/python/cpython/commit/7040aa54f14676938970e10c5f74ea93cd56aa38",
+            "https://github.com/python/cpython/commit/73f03e4808206f71eb6b92c579505a220942ef19",
+            "https://github.com/python/cpython/commit/b4ec17488eedec36d3c05fec127df71c0071f6cb",
+            "https://github.com/python/cpython/commit/c9d9f78feb1467e73fd29356c040bde1c104f29f",
+            "https://github.com/python/cpython/commit/cdae923ffe187d6ef916c0f665a31249619193fe",
+            "https://github.com/python/cpython/commit/fbc2a0ca9ac8aff6887f8ddf79b87b4510277227",
+            "https://github.com/python/cpython/issues/130577",
+            "https://github.com/python/cpython/pull/137027",
+            "https://linux.oracle.com/cve/CVE-2025-8194.html",
+            "https://linux.oracle.com/errata/ELSA-2025-15019.html",
+            "https://mail.python.org/archives/list/security-announce@python.org/thread/ZULLF3IZ726XP5EY7XJ7YIN3K5MDYR2D/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-8194",
+            "https://ubuntu.com/security/notices/USN-7710-1",
+            "https://ubuntu.com/security/notices/USN-7710-2",
+            "https://www.cve.org/CVERecord?id=CVE-2025-8194"
+          ],
+          "PublishedDate": "2025-07-28T19:15:43.793Z",
+          "LastModifiedDate": "2025-09-24T18:15:42.72Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-8194",
+          "PkgID": "libpython3.11-minimal@3.11.2-6+deb12u6",
+          "PkgName": "libpython3.11-minimal",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libpython3.11-minimal@3.11.2-6%2Bdeb12u6?arch=amd64\u0026distro=debian-12.12",
+            "UID": "2d7de56c88c157e2"
+          },
+          "InstalledVersion": "3.11.2-6+deb12u6",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:1978fe71049fb16033ca77b1cf5980ab759cfaecec42586a8ec64ff29fdd0717",
+            "DiffID": "sha256:37d39b2bb2dfc37b2d746f1c1a87ba555dcee3b578a54fa00fd8d13b5f6118b1"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-8194",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "cpython: Cpython infinite loop when parsing a tarfile",
+          "Description": "There is a defect in the CPython “tarfile” module affecting the “TarFile” extraction and entry enumeration APIs. The tar implementation would process tar archives with negative offsets without error, resulting in an infinite loop and deadlock during the parsing of maliciously crafted tar archives. \n\nThis vulnerability can be mitigated by including the following patch after importing the “tarfile” module:  https://gist.github.com/sethmlarson/1716ac5b82b73dbcbf23ad2eff8b33e1",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-835"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "amazon": 3,
+            "azure": 3,
+            "bitnami": 3,
+            "oracle-oval": 2,
+            "redhat": 2,
+            "rocky": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:14900",
+            "https://access.redhat.com/security/cve/CVE-2025-8194",
+            "https://bugzilla.redhat.com/2366982",
+            "https://bugzilla.redhat.com/2384043",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2384043",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8194",
+            "https://errata.almalinux.org/8/ALSA-2025-14900.html",
+            "https://errata.rockylinux.org/RLSA-2025:14841",
+            "https://gist.github.com/sethmlarson/1716ac5b82b73dbcbf23ad2eff8b33e1",
+            "https://github.com/python/cpython/commit/57f5981d6260ed21266e0c26951b8564cc252bc2",
+            "https://github.com/python/cpython/commit/7040aa54f14676938970e10c5f74ea93cd56aa38",
+            "https://github.com/python/cpython/commit/73f03e4808206f71eb6b92c579505a220942ef19",
+            "https://github.com/python/cpython/commit/b4ec17488eedec36d3c05fec127df71c0071f6cb",
+            "https://github.com/python/cpython/commit/c9d9f78feb1467e73fd29356c040bde1c104f29f",
+            "https://github.com/python/cpython/commit/cdae923ffe187d6ef916c0f665a31249619193fe",
+            "https://github.com/python/cpython/commit/fbc2a0ca9ac8aff6887f8ddf79b87b4510277227",
+            "https://github.com/python/cpython/issues/130577",
+            "https://github.com/python/cpython/pull/137027",
+            "https://linux.oracle.com/cve/CVE-2025-8194.html",
+            "https://linux.oracle.com/errata/ELSA-2025-15019.html",
+            "https://mail.python.org/archives/list/security-announce@python.org/thread/ZULLF3IZ726XP5EY7XJ7YIN3K5MDYR2D/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-8194",
+            "https://ubuntu.com/security/notices/USN-7710-1",
+            "https://ubuntu.com/security/notices/USN-7710-2",
+            "https://www.cve.org/CVERecord?id=CVE-2025-8194"
+          ],
+          "PublishedDate": "2025-07-28T19:15:43.793Z",
+          "LastModifiedDate": "2025-09-24T18:15:42.72Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-8194",
+          "PkgID": "libpython3.11-stdlib@3.11.2-6+deb12u6",
+          "PkgName": "libpython3.11-stdlib",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libpython3.11-stdlib@3.11.2-6%2Bdeb12u6?arch=amd64\u0026distro=debian-12.12",
+            "UID": "b3bb33263aecd8d1"
+          },
+          "InstalledVersion": "3.11.2-6+deb12u6",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:1978fe71049fb16033ca77b1cf5980ab759cfaecec42586a8ec64ff29fdd0717",
+            "DiffID": "sha256:37d39b2bb2dfc37b2d746f1c1a87ba555dcee3b578a54fa00fd8d13b5f6118b1"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-8194",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "cpython: Cpython infinite loop when parsing a tarfile",
+          "Description": "There is a defect in the CPython “tarfile” module affecting the “TarFile” extraction and entry enumeration APIs. The tar implementation would process tar archives with negative offsets without error, resulting in an infinite loop and deadlock during the parsing of maliciously crafted tar archives. \n\nThis vulnerability can be mitigated by including the following patch after importing the “tarfile” module:  https://gist.github.com/sethmlarson/1716ac5b82b73dbcbf23ad2eff8b33e1",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-835"
+          ],
+          "VendorSeverity": {
+            "alma": 2,
+            "amazon": 3,
+            "azure": 3,
+            "bitnami": 3,
+            "oracle-oval": 2,
+            "redhat": 2,
+            "rocky": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "bitnami": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 7.5
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2025:14900",
+            "https://access.redhat.com/security/cve/CVE-2025-8194",
+            "https://bugzilla.redhat.com/2366982",
+            "https://bugzilla.redhat.com/2384043",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2384043",
+            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-8194",
+            "https://errata.almalinux.org/8/ALSA-2025-14900.html",
+            "https://errata.rockylinux.org/RLSA-2025:14841",
+            "https://gist.github.com/sethmlarson/1716ac5b82b73dbcbf23ad2eff8b33e1",
+            "https://github.com/python/cpython/commit/57f5981d6260ed21266e0c26951b8564cc252bc2",
+            "https://github.com/python/cpython/commit/7040aa54f14676938970e10c5f74ea93cd56aa38",
+            "https://github.com/python/cpython/commit/73f03e4808206f71eb6b92c579505a220942ef19",
+            "https://github.com/python/cpython/commit/b4ec17488eedec36d3c05fec127df71c0071f6cb",
+            "https://github.com/python/cpython/commit/c9d9f78feb1467e73fd29356c040bde1c104f29f",
+            "https://github.com/python/cpython/commit/cdae923ffe187d6ef916c0f665a31249619193fe",
+            "https://github.com/python/cpython/commit/fbc2a0ca9ac8aff6887f8ddf79b87b4510277227",
+            "https://github.com/python/cpython/issues/130577",
+            "https://github.com/python/cpython/pull/137027",
+            "https://linux.oracle.com/cve/CVE-2025-8194.html",
+            "https://linux.oracle.com/errata/ELSA-2025-15019.html",
+            "https://mail.python.org/archives/list/security-announce@python.org/thread/ZULLF3IZ726XP5EY7XJ7YIN3K5MDYR2D/",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-8194",
+            "https://ubuntu.com/security/notices/USN-7710-1",
+            "https://ubuntu.com/security/notices/USN-7710-2",
+            "https://www.cve.org/CVERecord?id=CVE-2025-8194"
+          ],
+          "PublishedDate": "2025-07-28T19:15:43.793Z",
+          "LastModifiedDate": "2025-09-24T18:15:42.72Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2025-7458",
+          "PkgID": "libsqlite3-0@3.40.1-2+deb12u2",
+          "PkgName": "libsqlite3-0",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libsqlite3-0@3.40.1-2%2Bdeb12u2?arch=amd64\u0026distro=debian-12.12",
+            "UID": "ed1b6460f878d520"
+          },
+          "InstalledVersion": "3.40.1-2+deb12u2",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:1ce95d9ae66c3a66005c77070f890e4c204da3d18bf869dbee0ae7bf76702c74",
+            "DiffID": "sha256:df376b0701daa14d0bccd3b6a9ee3c2f38f0eda094fdfe021fc75726fad0f710"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-7458",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "sqlite: SQLite integer overflow",
+          "Description": "An integer overflow in the sqlite3KeyInfoFromExprList function in SQLite versions 3.39.2 through 3.41.1 allows an attacker with the ability to execute arbitrary SQL statements to cause a denial of service or disclose sensitive information from process memory via a crafted SELECT statement with a large number of expressions in the ORDER BY clause.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "VendorSeverity": {
+            "cbl-mariner": 2,
+            "nvd": 4,
+            "redhat": 2
+          },
+          "CVSS": {
+            "nvd": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:H",
+              "V3Score": 9.1
+            },
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:L",
+              "V3Score": 6.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2025-7458",
+            "https://nvd.nist.gov/vuln/detail/CVE-2025-7458",
+            "https://sqlite.org/forum/forumpost/16ce2bb7a639e29b",
+            "https://sqlite.org/src/info/12ad822d9b827777",
+            "https://www.cve.org/CVERecord?id=CVE-2025-7458"
+          ],
+          "PublishedDate": "2025-07-29T13:15:28.953Z",
+          "LastModifiedDate": "2025-08-11T19:11:30.693Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2023-45853",
+          "PkgID": "zlib1g@1:1.2.13.dfsg-1",
+          "PkgName": "zlib1g",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/zlib1g@1.2.13.dfsg-1?arch=amd64\u0026distro=debian-12.12\u0026epoch=1",
+            "UID": "cfe2e20187a599f5"
+          },
+          "InstalledVersion": "1:1.2.13.dfsg-1",
+          "Status": "will_not_fix",
+          "Layer": {
+            "Digest": "sha256:d107e437f7299a0db6425d4e37f44fa779f7917ecc8daf1e87128ee91b9ed3d3",
+            "DiffID": "sha256:36f5f951f60a9fa1d51878e76fc16ba7b752f4d464a21b758a8ac88f0992c488"
+          },
+          "SeveritySource": "nvd",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2023-45853",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Title": "zlib: integer overflow and resultant heap-based buffer overflow in zipOpenNewFileInZip4_6",
+          "Description": "MiniZip in zlib through 1.3 has an integer overflow and resultant heap-based buffer overflow in zipOpenNewFileInZip4_64 via a long filename, comment, or extra field. NOTE: MiniZip is not a supported part of the zlib product. NOTE: pyminizip through 0.2.6 is also vulnerable because it bundles an affected zlib version, and exposes the applicable MiniZip code through its compress API.",
+          "Severity": "CRITICAL",
+          "CweIDs": [
+            "CWE-190"
+          ],
+          "VendorSeverity": {
+            "amazon": 2,
+            "azure": 3,
+            "cbl-mariner": 4,
+            "ghsa": 4,
+            "nvd": 4,
+            "photon": 4,
+            "redhat": 2,
+            "ubuntu": 2
+          },
+          "CVSS": {
+            "ghsa": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+              "V3Score": 9.8
+            },
             "nvd": {
               "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
               "V3Score": 9.8
             },
             "redhat": {
-              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:C/C:L/I:H/A:L",
-              "V3Score": 7.7
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:L",
+              "V3Score": 5.3
             }
           },
           "References": [
-            "https://access.redhat.com/errata/RHSA-2025:11992",
-            "https://access.redhat.com/security/cve/CVE-2025-6965",
-            "https://bugzilla.redhat.com/2380149",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2380149",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6965",
-            "https://errata.almalinux.org/9/ALSA-2025-11992.html",
-            "https://errata.rockylinux.org/RLSA-2025:12010",
-            "https://linux.oracle.com/cve/CVE-2025-6965.html",
-            "https://linux.oracle.com/errata/ELSA-2025-14101.html",
-            "https://nvd.nist.gov/vuln/detail/CVE-2025-6965",
-            "https://ubuntu.com/security/notices/USN-7676-1",
-            "https://ubuntu.com/security/notices/USN-7679-1",
-            "https://www.cve.org/CVERecord?id=CVE-2025-6965",
-            "https://www.sqlite.org/src/info/5508b56fd24016c13981ec280ecdd833007c9d8dd595edb295b984c2b487b5c8"
+            "http://www.openwall.com/lists/oss-security/2023/10/20/9",
+            "http://www.openwall.com/lists/oss-security/2024/01/24/10",
+            "https://access.redhat.com/security/cve/CVE-2023-45853",
+            "https://chromium.googlesource.com/chromium/src/+/d709fb23806858847131027da95ef4c548813356",
+            "https://chromium.googlesource.com/chromium/src/+/de29dd6c7151d3cd37cb4cf0036800ddfb1d8b61",
+            "https://github.com/madler/zlib/blob/ac8f12c97d1afd9bafa9c710f827d40a407d3266/contrib/README.contrib#L1-L4",
+            "https://github.com/madler/zlib/commit/73331a6a0481067628f065ffe87bb1d8f787d10c",
+            "https://github.com/madler/zlib/pull/843",
+            "https://github.com/smihica/pyminizip",
+            "https://github.com/smihica/pyminizip/blob/master/zlib-1.2.11/contrib/minizip/zip.c",
+            "https://lists.debian.org/debian-lts-announce/2023/11/msg00026.html",
+            "https://nvd.nist.gov/vuln/detail/CVE-2023-45853",
+            "https://pypi.org/project/pyminizip/#history",
+            "https://security.gentoo.org/glsa/202401-18",
+            "https://security.netapp.com/advisory/ntap-20231130-0009",
+            "https://security.netapp.com/advisory/ntap-20231130-0009/",
+            "https://ubuntu.com/security/notices/USN-7107-1",
+            "https://www.cve.org/CVERecord?id=CVE-2023-45853",
+            "https://www.winimage.com/zLibDll/minizip.html"
           ],
-          "PublishedDate": "2025-07-15T14:15:31.08Z",
-          "LastModifiedDate": "2025-07-22T17:06:21.51Z"
+          "PublishedDate": "2023-10-14T02:15:09.323Z",
+          "LastModifiedDate": "2024-12-20T17:41:31.237Z"
         }
       ]
     },
@@ -334,116 +1085,19 @@
       "Type": "python-pkg",
       "Vulnerabilities": [
         {
-          "VulnerabilityID": "CVE-2022-40897",
-          "PkgName": "setuptools",
-          "PkgPath": "usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/METADATA",
-          "PkgIdentifier": {
-            "PURL": "pkg:pypi/setuptools@58.1.0",
-            "UID": "a31a7b733078920c"
-          },
-          "InstalledVersion": "58.1.0",
-          "FixedVersion": "65.5.1",
-          "Status": "fixed",
-          "Layer": {
-            "Digest": "sha256:d325733a625202bb5fe7304c973b984f63bebdb83f9fb2c56c7cb769e7d9e459",
-            "DiffID": "sha256:5139c09013743f74dce3304d3fb3ac0c09256e746fa6889174352f39f0c4cd3e"
-          },
-          "SeveritySource": "ghsa",
-          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2022-40897",
-          "DataSource": {
-            "ID": "ghsa",
-            "Name": "GitHub Security Advisory pip",
-            "URL": "https://github.com/advisories?query=type%3Areviewed+ecosystem%3Apip"
-          },
-          "Title": "pypa-setuptools: Regular Expression Denial of Service (ReDoS) in package_index.py",
-          "Description": "Python Packaging Authority (PyPA) setuptools before 65.5.1 allows remote attackers to cause a denial of service via HTML in a crafted package or custom PackageIndex page. There is a Regular Expression Denial of Service (ReDoS) in package_index.py.",
-          "Severity": "HIGH",
-          "CweIDs": [
-            "CWE-1333"
-          ],
-          "VendorSeverity": {
-            "alma": 2,
-            "amazon": 2,
-            "bitnami": 2,
-            "cbl-mariner": 2,
-            "ghsa": 3,
-            "nvd": 2,
-            "oracle-oval": 2,
-            "photon": 2,
-            "redhat": 2,
-            "rocky": 2,
-            "ubuntu": 2
-          },
-          "CVSS": {
-            "bitnami": {
-              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
-              "V3Score": 5.9
-            },
-            "ghsa": {
-              "V3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
-              "V3Score": 7.5
-            },
-            "nvd": {
-              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
-              "V3Score": 5.9
-            },
-            "redhat": {
-              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
-              "V3Score": 5.9
-            }
-          },
-          "References": [
-            "https://access.redhat.com/errata/RHSA-2023:0952",
-            "https://access.redhat.com/security/cve/CVE-2022-40897",
-            "https://bugzilla.redhat.com/2158559",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2158559",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-40897",
-            "https://errata.almalinux.org/9/ALSA-2023-0952.html",
-            "https://errata.rockylinux.org/RLSA-2023:0952",
-            "https://github.com/pypa/advisory-database/tree/main/vulns/setuptools/PYSEC-2022-43012.yaml",
-            "https://github.com/pypa/setuptools",
-            "https://github.com/pypa/setuptools/blob/fe8a98e696241487ba6ac9f91faa38ade939ec5d/setuptools/package_index.py#L200",
-            "https://github.com/pypa/setuptools/commit/43a9c9bfa6aa626ec2a22540bea28d2ca77964be",
-            "https://github.com/pypa/setuptools/compare/v65.5.0...v65.5.1",
-            "https://github.com/pypa/setuptools/issues/3659",
-            "https://linux.oracle.com/cve/CVE-2022-40897.html",
-            "https://linux.oracle.com/errata/ELSA-2024-2987.html",
-            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/ADES3NLOE5QJKBLGNZNI2RGVOSQXA37R",
-            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/ADES3NLOE5QJKBLGNZNI2RGVOSQXA37R/",
-            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/YNA2BAH2ACBZ4TVJZKFLCR7L23BG5C3H",
-            "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/YNA2BAH2ACBZ4TVJZKFLCR7L23BG5C3H/",
-            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ADES3NLOE5QJKBLGNZNI2RGVOSQXA37R",
-            "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/YNA2BAH2ACBZ4TVJZKFLCR7L23BG5C3H",
-            "https://nvd.nist.gov/vuln/detail/CVE-2022-40897",
-            "https://pyup.io/posts/pyup-discovers-redos-vulnerabilities-in-top-python-packages",
-            "https://pyup.io/posts/pyup-discovers-redos-vulnerabilities-in-top-python-packages/",
-            "https://pyup.io/vulnerabilities/CVE-2022-40897/52495",
-            "https://pyup.io/vulnerabilities/CVE-2022-40897/52495/",
-            "https://security.netapp.com/advisory/ntap-20230214-0001",
-            "https://security.netapp.com/advisory/ntap-20230214-0001/",
-            "https://security.netapp.com/advisory/ntap-20240621-0006",
-            "https://security.netapp.com/advisory/ntap-20240621-0006/",
-            "https://setuptools.pypa.io/en/latest",
-            "https://ubuntu.com/security/notices/USN-5817-1",
-            "https://www.cve.org/CVERecord?id=CVE-2022-40897"
-          ],
-          "PublishedDate": "2022-12-23T00:15:13.987Z",
-          "LastModifiedDate": "2024-11-21T07:22:13.787Z"
-        },
-        {
           "VulnerabilityID": "CVE-2024-6345",
           "PkgName": "setuptools",
-          "PkgPath": "usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/METADATA",
+          "PkgPath": "usr/local/lib/python3.11/site-packages/setuptools-65.5.1.dist-info/METADATA",
           "PkgIdentifier": {
-            "PURL": "pkg:pypi/setuptools@58.1.0",
-            "UID": "a31a7b733078920c"
+            "PURL": "pkg:pypi/setuptools@65.5.1",
+            "UID": "d283ebd8a092b80b"
           },
-          "InstalledVersion": "58.1.0",
+          "InstalledVersion": "65.5.1",
           "FixedVersion": "70.0.0",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:d325733a625202bb5fe7304c973b984f63bebdb83f9fb2c56c7cb769e7d9e459",
-            "DiffID": "sha256:5139c09013743f74dce3304d3fb3ac0c09256e746fa6889174352f39f0c4cd3e"
+            "Digest": "sha256:1ce95d9ae66c3a66005c77070f890e4c204da3d18bf869dbee0ae7bf76702c74",
+            "DiffID": "sha256:df376b0701daa14d0bccd3b6a9ee3c2f38f0eda094fdfe021fc75726fad0f710"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2024-6345",
@@ -509,17 +1163,17 @@
         {
           "VulnerabilityID": "CVE-2025-47273",
           "PkgName": "setuptools",
-          "PkgPath": "usr/local/lib/python3.9/site-packages/setuptools-58.1.0.dist-info/METADATA",
+          "PkgPath": "usr/local/lib/python3.11/site-packages/setuptools-65.5.1.dist-info/METADATA",
           "PkgIdentifier": {
-            "PURL": "pkg:pypi/setuptools@58.1.0",
-            "UID": "a31a7b733078920c"
+            "PURL": "pkg:pypi/setuptools@65.5.1",
+            "UID": "d283ebd8a092b80b"
           },
-          "InstalledVersion": "58.1.0",
+          "InstalledVersion": "65.5.1",
           "FixedVersion": "78.1.1",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:d325733a625202bb5fe7304c973b984f63bebdb83f9fb2c56c7cb769e7d9e459",
-            "DiffID": "sha256:5139c09013743f74dce3304d3fb3ac0c09256e746fa6889174352f39f0c4cd3e"
+            "Digest": "sha256:1ce95d9ae66c3a66005c77070f890e4c204da3d18bf869dbee0ae7bf76702c74",
+            "DiffID": "sha256:df376b0701daa14d0bccd3b6a9ee3c2f38f0eda094fdfe021fc75726fad0f710"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-47273",
