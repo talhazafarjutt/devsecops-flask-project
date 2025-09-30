@@ -27,11 +27,14 @@ COPY --chown=uwsgi:uwsgi . /srv/flask_app
 
 # Create necessary directories and set permissions
 RUN mkdir -p /var/log/nginx /var/cache/nginx /var/run /tmp /var/lib/nginx/tmp /tmp/client_body_temp /srv/flask_app/database \
-    && chown -R uwsgi:uwsgi /var/log/nginx /var/cache/nginx /var/run /tmp /var/lib/nginx /tmp/client_body_temp /srv/flask_app/database \
-    && chown -R uwsgi:uwsgi /srv/flask_app \
-    && chmod -R 755 /var/lib/nginx
+    && chown -R www-data:www-data /var/log/nginx /var/cache/nginx /var/lib/nginx \
+    && chown -R uwsgi:uwsgi /srv/flask_app /srv/flask_app/database \
+    && chmod -R 755 /var/lib/nginx /tmp \
+    && chmod 664 /tmp/uwsgi.socket 2>/dev/null || true \
+    && touch /tmp/uwsgi.log && chown uwsgi:uwsgi /tmp/uwsgi.log && chmod 664 /tmp/uwsgi.log
 
-USER uwsgi
+# Copy nginx configuration
+COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
@@ -39,5 +42,5 @@ EXPOSE 80
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
     CMD curl -f http://localhost/ || exit 1
 
-# Start nginx and uwsgi
-CMD ["sh", "-c", "nginx -g 'daemon off;' & uwsgi --ini uwsgi.ini"]
+# Start nginx as root and uwsgi as uwsgi user
+CMD ["sh", "-c", "nginx -g 'daemon off;' & su -s /bin/bash uwsgi -c 'cd /srv/flask_app && uwsgi --ini uwsgi.ini' && wait"]
