@@ -1,0 +1,6 @@
+projectKey=devsecops-flask-project
+serverUrl=http://localhost:9000
+serverVersion=25.9.0.112764
+dashboardUrl=http://localhost:9000/dashboard?id=devsecops-flask-project
+ceTaskId=2d58ab1f-78e8-42ca-b144-de68a0521309
+ceTaskUrl=http://localhost:9000/api/ce/task?id=2d58ab1f-78e8-42ca-b144-de68a0521309
