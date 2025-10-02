@@ -85,6 +85,7 @@ jobs:
           context: .
           push: false
           tags: devsecops-flask:latest
+          load: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
