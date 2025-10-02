@@ -1,6 +1,5 @@
-from pickle import dumps, loads
-from base64 import b64encode, b64decode
 import json
+from base64 import b64encode, b64decode
 from uuid import uuid4
 
 from bcrypt import gensalt, hashpw
@@ -123,7 +122,8 @@ def toggle_darkmode():
     preferences = g.preferences
     preferences['mode'] = 'light' if preferences['mode'] == 'dark' else 'dark'
 
-    response.set_cookie('preferences', b64encode(dumps(preferences)).decode())
+    # SECURITY FIX: Replace pickle with JSON
+    response.set_cookie('preferences', b64encode(json.dumps(preferences).encode()).decode())
     return response
 
 
@@ -136,7 +136,20 @@ def before_request():
     if preferences is None:
         preferences = default_preferences
     else:
-        preferences = loads(b64decode(preferences))
+        try:
+            # SECURITY FIX: Replace unsafe pickle loads with secure JSON
+            decoded_preferences = b64decode(preferences).decode('utf-8')
+            preferences = json.loads(decoded_preferences)
+            
+            # Validate preferences structure
+            if not isinstance(preferences, dict) or 'mode' not in preferences:
+                preferences = default_preferences
+            elif preferences['mode'] not in ('light', 'dark'):
+                preferences = default_preferences
+                
+        except (ValueError, json.JSONDecodeError, UnicodeDecodeError):
+            # If preferences are corrupted, use defaults
+            preferences = default_preferences
 
     g.preferences = preferences
 
@@ -145,6 +158,5 @@ def before_request():
 def after_request(response: Response) -> Response:
     if request.cookies.get('preferences') is None:
         preferences = default_preferences
-        response.set_cookie('preferences',
-                            b64encode(dumps(preferences)).decode())
-    return response
+        # SECURITY FIX: Replace pickle with JSON
+        response.set_cookie('preferences')
