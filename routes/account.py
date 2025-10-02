@@ -123,7 +123,7 @@ def toggle_darkmode():
     preferences['mode'] = 'light' if preferences['mode'] == 'dark' else 'dark'
 
     # SECURITY FIX: Replace pickle with JSON
-    response.set_cookie('preferences', b64encode(json.dumps(preferences).encode()).decode())
+    response.set_cookie('preferences', b64encode(json.dumps(preferences).encode()).decode(), secure=True, samesite='Strict')
     return response
 
 
@@ -159,4 +159,4 @@ def after_request(response: Response) -> Response:
     if request.cookies.get('preferences') is None:
         preferences = default_preferences
         # SECURITY FIX: Replace pickle with JSON
-        response.set_cookie('preferences')
+        response.set_cookie('preferences', '', secure=True, samesite='Strict')
