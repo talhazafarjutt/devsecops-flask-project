@@ -1,12 +1,10 @@
-from pickle import dumps, loads
-from base64 import b64encode, b64decode
 import json
+from base64 import b64encode, b64decode
 from uuid import uuid4
 
 from bcrypt import gensalt, hashpw
 from flask_login import login_required, current_user
 from flask import redirect, flash, render_template, request, Response, g, make_response
-from sqlalchemy import text
 
 from app import app
 from models import Session, Note
@@ -28,7 +26,7 @@ def search():
     search_param = request.args.get('search', '')
     # Sanitize search parameter
     search_param = sanitize_text_field(search_param, 100)  # Limit to 100 chars
-    
+
     with Session() as session:
         session.query(Note)
 
@@ -89,7 +87,7 @@ def update_account():
                 except ValueError:
                     flash('Invalid email format', 'error')
                     return redirect('/account')
-            
+
             filtered_values = {
                 key: value
                 for key, value in form.data.items()
@@ -123,7 +121,13 @@ def toggle_darkmode():
     preferences = g.preferences
     preferences['mode'] = 'light' if preferences['mode'] == 'dark' else 'dark'
 
-    response.set_cookie('preferences', b64encode(dumps(preferences)).decode())
+    try:
+        preferences_json = json.dumps(preferences)
+        encoded_preferences = b64encode(preferences_json.encode('utf-8')).decode()
+        response.set_cookie('preferences', encoded_preferences, secure=True, samesite='Strict', httponly=True)
+    except (TypeError, json.JSONEncodeError):
+        # Fallback to default preferences if serialization fails
+        response.set_cookie('preferences', 'light', secure=True, samesite='Strict', httponly=True)
     return response
 
 
@@ -132,11 +136,17 @@ default_preferences = {'mode': 'light'}
 
 @app.before_request
 def before_request():
-    preferences = request.cookies.get('preferences')
-    if preferences is None:
+    preferences_cookie = request.cookies.get('preferences')
+    
+    if preferences_cookie is None:
         preferences = default_preferences
     else:
-        preferences = loads(b64decode(preferences))
+        try:
+            decoded_data = b64decode(preferences_cookie).decode('utf-8')
+            parsed_prefs = json.loads(decoded_data)
+            preferences = parsed_prefs if (isinstance(parsed_prefs, dict) and parsed_prefs.get('mode') in ('light', 'dark')) else default_preferences
+        except ValueError:
+            preferences = default_preferences
 
     g.preferences = preferences
 
@@ -144,7 +154,6 @@ def before_request():
 @app.after_request
 def after_request(response: Response) -> Response:
     if request.cookies.get('preferences') is None:
-        preferences = default_preferences
-        response.set_cookie('preferences',
-                            b64encode(dumps(preferences)).decode())
+        # Simple cookie setting - no duplicate logic
+        response.set_cookie('preferences', 'light', secure=True, samesite='Strict', httponly=True)
     return response
