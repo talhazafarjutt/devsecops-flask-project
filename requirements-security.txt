@@ -1,0 +1,3 @@
+# Security scanning tools
+bandit>=1.7.0
+safety>=2.0.0

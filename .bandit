@@ -1,0 +1,3 @@
+[bandit]
+exclude_dirs = database,static,templates,venv,__pycache__
+skip = B101,B601
