@@ -162,10 +162,6 @@ def before_request():
 @app.after_request
 def after_request(response: Response) -> Response:
     if request.cookies.get('preferences') is None:
-        try:
-            preferences_json = json.dumps(default_preferences)
-            encoded_preferences = b64encode(preferences_json.encode('utf-8')).decode()
-            response.set_cookie('preferences', encoded_preferences, secure=True, samesite='Strict', httponly=True)
-        except (TypeError, json.JSONEncodeError):
-            # Fallback to simple default
-            response.set_cookie('preferences', 'light', secure=True, samesite='Strict', httponly=True)
+        # Simple cookie setting - no duplicate logic
+        response.set_cookie('preferences', 'light', secure=True, samesite='Strict', httponly=True)
+    return response
