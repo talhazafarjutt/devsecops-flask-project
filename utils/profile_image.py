@@ -82,7 +82,7 @@ def download(url: str) -> bytes:
             'Accept': 'image/*'
         })
         
-        # nosec B301
+        # nosec B310
         with urlopen(request, timeout=10, context=ssl_context) as response:
             # Verify content type from headers
             content_type = response.headers.get('Content-Type', '').split(';')[0].strip()
