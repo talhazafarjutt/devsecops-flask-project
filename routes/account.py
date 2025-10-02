@@ -122,8 +122,13 @@ def toggle_darkmode():
     preferences = g.preferences
     preferences['mode'] = 'light' if preferences['mode'] == 'dark' else 'dark'
 
-    # SECURITY FIX: Replace pickle with JSON
-    response.set_cookie('preferences', b64encode(json.dumps(preferences).encode()).decode(), secure=True, samesite='Strict')
+    try:
+        preferences_json = json.dumps(preferences)
+        encoded_preferences = b64encode(preferences_json.encode('utf-8')).decode()
+        response.set_cookie('preferences', encoded_preferences, secure=True, samesite='Strict')
+    except (TypeError, json.JSONEncodeError):
+        # Fallback to default preferences if serialization fails
+        response.set_cookie('preferences', 'light', secure=True, samesite='Strict')
     return response
 
 
@@ -157,6 +162,10 @@ def before_request():
 @app.after_request
 def after_request(response: Response) -> Response:
     if request.cookies.get('preferences') is None:
-        preferences = default_preferences
-        # SECURITY FIX: Replace pickle with JSON
-        response.set_cookie('preferences', '', secure=True, samesite='Strict')
+        try:
+            preferences_json = json.dumps(default_preferences)
+            encoded_preferences = b64encode(preferences_json.encode('utf-8')).decode()
+            response.set_cookie('preferences', encoded_preferences, secure=True, samesite='Strict')
+        except (TypeError, json.JSONEncodeError):
+            # Fallback to simple default
+            response.set_cookie('preferences', 'light', secure=True, samesite='Strict')
