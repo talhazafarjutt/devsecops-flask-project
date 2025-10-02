@@ -136,15 +136,15 @@ default_preferences = {'mode': 'light'}
 
 @app.before_request
 def before_request():
-    preferences = request.cookies.get('preferences')
-    if preferences is None:
+    preferences_cookie = request.cookies.get('preferences')
+    
+    if preferences_cookie is None:
         preferences = default_preferences
     else:
         try:
-            decoded_preferences = b64decode(preferences).decode('utf-8')
-            preferences = json.loads(decoded_preferences)
-            if not isinstance(preferences, dict) or preferences.get('mode') not in ('light', 'dark'):
-                preferences = default_preferences
+            decoded_data = b64decode(preferences_cookie).decode('utf-8')
+            parsed_prefs = json.loads(decoded_data)
+            preferences = parsed_prefs if (isinstance(parsed_prefs, dict) and parsed_prefs.get('mode') in ('light', 'dark')) else default_preferences
         except ValueError:
             preferences = default_preferences
 
