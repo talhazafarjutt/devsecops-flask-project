@@ -5,7 +5,6 @@ from uuid import uuid4
 from bcrypt import gensalt, hashpw
 from flask_login import login_required, current_user
 from flask import redirect, flash, render_template, request, Response, g, make_response
-from sqlalchemy import text
 
 from app import app
 from models import Session, Note
@@ -27,7 +26,7 @@ def search():
     search_param = request.args.get('search', '')
     # Sanitize search parameter
     search_param = sanitize_text_field(search_param, 100)  # Limit to 100 chars
-    
+
     with Session() as session:
         session.query(Note)
 
@@ -88,7 +87,7 @@ def update_account():
                 except ValueError:
                     flash('Invalid email format', 'error')
                     return redirect('/account')
-            
+
             filtered_values = {
                 key: value
                 for key, value in form.data.items()
@@ -142,18 +141,11 @@ def before_request():
         preferences = default_preferences
     else:
         try:
-            # SECURITY FIX: Replace unsafe pickle loads with secure JSON
             decoded_preferences = b64decode(preferences).decode('utf-8')
             preferences = json.loads(decoded_preferences)
-            
-            # Validate preferences structure
-            if not isinstance(preferences, dict) or 'mode' not in preferences:
+            if not isinstance(preferences, dict) or preferences.get('mode') not in ('light', 'dark'):
                 preferences = default_preferences
-            elif preferences['mode'] not in ('light', 'dark'):
-                preferences = default_preferences
-                
-        except (ValueError, json.JSONDecodeError, UnicodeDecodeError):
-            # If preferences are corrupted, use defaults
+        except ValueError:
             preferences = default_preferences
 
     g.preferences = preferences
