@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - develop
+      - dev
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -54,6 +54,14 @@ jobs:
         run: |
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+      - name: Debug SonarCloud Connection
+        run: |
+          echo "Testing SonarCloud API connection..."
+          curl -u $SONAR_TOKEN: \
+            "https://sonarcloud.io/api/projects/search?projects=talhazafarjutt_devsecops-flask-project" \
+            || echo "Connection test failed"
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@master
@@ -67,6 +75,7 @@ jobs:
             -Dsonar.python.version=3.11
             -Dsonar.coverage.exclusions=**/*
             -Dsonar.python.coverage.reportPaths=
+            -Dsonar.qualitygate.wait=false
 
   container-security:
     name: Container Build & Security Scan

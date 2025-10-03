@@ -44,4 +44,5 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
     CMD curl -f http://localhost/ || exit 1
 
 # Start nginx and uwsgi
-CMD ["sh", "-c", "nginx -g 'daemon off;' & cd /srv/flask_app && su -s /bin/sh uwsgi -c 'uwsgi --ini uwsgi.ini' & wait"]
+# CMD ["sh", "-c", "nginx -g 'daemon off;' & cd /srv/flask_app && su -s /bin/sh uwsgi -c 'uwsgi --ini uwsgi.ini' & wait"]
+CMD ["sh", "-c", "nginx && uwsgi --ini /srv/flask_app/uwsgi.ini"]
