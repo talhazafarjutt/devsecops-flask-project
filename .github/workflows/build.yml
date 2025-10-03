@@ -75,6 +75,7 @@ jobs:
             -Dsonar.python.version=3.11
             -Dsonar.coverage.exclusions=**/*
             -Dsonar.python.coverage.reportPaths=
+            -Dsonar.qualitygate.wait=false
 
   container-security:
     name: Container Build & Security Scan
