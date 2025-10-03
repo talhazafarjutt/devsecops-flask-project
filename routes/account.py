@@ -24,13 +24,11 @@ def account():
 @login_required
 def search():
     search_param = request.args.get('search', '')
-    # Sanitize search parameter
     search_param = sanitize_text_field(search_param, 100)  # Limit to 100 chars
 
     with Session() as session:
         session.query(Note)
 
-        # Use parameterized query to prevent SQL injection
         personal_notes = session.query(Note).filter(
             Note.user_id == current_user.id,
             Note.text.like(f"%{search_param}%")).all()
@@ -80,7 +78,6 @@ def update_account():
         flash(json.dumps(form.errors), 'error')
     else:
         with Session() as session:
-            # Sanitize email if provided
             if form.email.data:
                 try:
                     form.email.data = sanitize_text_field(form.email.data, 255)
@@ -126,7 +123,6 @@ def toggle_darkmode():
         encoded_preferences = b64encode(preferences_json.encode('utf-8')).decode()
         response.set_cookie('preferences', encoded_preferences, secure=True, samesite='Strict', httponly=True)
     except (TypeError, json.JSONEncodeError):
-        # Fallback to default preferences if serialization fails
         response.set_cookie('preferences', 'light', secure=True, samesite='Strict', httponly=True)
     return response
 
@@ -154,6 +150,5 @@ def before_request():
 @app.after_request
 def after_request(response: Response) -> Response:
     if request.cookies.get('preferences') is None:
-        # Simple cookie setting - no duplicate logic
         response.set_cookie('preferences', 'light', secure=True, samesite='Strict', httponly=True)
     return response
