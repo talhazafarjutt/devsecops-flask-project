@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "5001:80"
+      - "127.0.0.1:5001:80"  # Only bind to localhost
     env_file:
       - .env
     volumes:
@@ -23,7 +23,7 @@ services:
     image: prom/prometheus:latest
     container_name: prometheus
     ports:
-      - "9090:9090"
+      - "127.0.0.1:9090:9090"  # Only bind to localhost
     volumes:
       - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - ./monitoring/prometheus/rules:/etc/prometheus/rules
@@ -44,7 +44,7 @@ services:
     image: grafana/grafana:latest
     container_name: grafana
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"  # Only bind to localhost
     volumes:
       - grafana_data:/var/lib/grafana
       - ./monitoring/grafana/provisioning:/etc/grafana/provisioning
@@ -57,6 +57,15 @@ services:
       - GF_SERVER_SERVE_FROM_SUB_PATH=true
       - GF_SERVER_DOMAIN=dev.devsecopsassignment.work.gd
       - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+      # Additional Grafana security settings
+      - GF_SECURITY_COOKIE_SECURE=true
+      - GF_SECURITY_COOKIE_SAMESITE=strict
+      - GF_SECURITY_STRICT_TRANSPORT_SECURITY=true
+      - GF_SECURITY_STRICT_TRANSPORT_SECURITY_MAX_AGE_SECONDS=31536000
+      - GF_SECURITY_STRICT_TRANSPORT_SECURITY_PRELOAD=true
+      - GF_SECURITY_STRICT_TRANSPORT_SECURITY_SUBDOMAINS=true
+      - GF_SECURITY_X_CONTENT_TYPE_OPTIONS=true
+      - GF_SECURITY_X_XSS_PROTECTION=true
     networks:
       - monitoring_network
     restart: unless-stopped
@@ -68,7 +77,7 @@ services:
     image: prom/node-exporter:latest
     container_name: node_exporter
     ports:
-      - "9100:9100"
+      - "127.0.0.1:9100:9100"  # Only bind to localhost
     volumes:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
@@ -87,13 +96,13 @@ services:
     image: gcr.io/cadvisor/cadvisor:latest
     container_name: cadvisor
     ports:
-      - "8080:8080"
+      - "127.0.0.1:8080:8080"  # Only bind to localhost
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:ro
       - /sys:/sys:ro
       - /var/lib/docker:/var/lib/docker:ro
-      - /dev/disk/:/dev/disk:ro
+      - /dev/disk/:/dev/disk/ro
     privileged: true
     devices:
       - /dev/kmsg:/dev/kmsg
