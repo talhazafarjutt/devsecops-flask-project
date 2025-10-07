@@ -21,9 +21,56 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd ~/projects/devsecops-flask-project
+            echo "🚀 Starting deployment on Debian 13..."
+            
+            # Update system
+            apt update
+            
+            # Install required packages if not present
+            which docker || (curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh)
+            which docker-compose || (curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose)
+            which nginx || apt install -y nginx
+            which certbot || apt install -y certbot python3-certbot-nginx
+            
+            # Start Docker
+            systemctl start docker
+            systemctl enable docker
+            
+            # Navigate to project directory
+            cd ~/projects/devsecops-flask-project || (mkdir -p ~/projects && cd ~/projects && git clone https://github.com/talhazafarjutt/devsecops-flask-project.git && cd devsecops-flask-project)
+            
+            # Pull latest changes
             git pull origin main
-            docker-compose down
+            
+            # Stop existing containers
+            docker-compose down || true
+            
+            # Start containers
             docker-compose up -d --build
-            sudo systemctl reload nginx
-            echo "Deployment completed successfully!"
+            
+            # Wait for services to be ready
+            sleep 30
+            
+            # Configure Nginx if not configured
+            if [ ! -f "/etc/nginx/sites-enabled/devsecops" ]; then
+              cp nginx/nginx.conf /etc/nginx/sites-available/devsecops
+              ln -sf /etc/nginx/sites-available/devsecops /etc/nginx/sites-enabled/
+              rm -f /etc/nginx/sites-enabled/default
+              nginx -t
+            fi
+            
+            # Get SSL certificate if not exists
+            if [ ! -f "/etc/letsencrypt/live/dev.devsecopsassignment.work.gd/fullchain.pem" ]; then
+              certbot --nginx -d dev.devsecopsassignment.work.gd --non-interactive --agree-tos --email zafartalhajutt@gmail.com || true
+            fi
+            
+            # Reload Nginx
+            systemctl reload nginx
+            
+            # Health check
+            sleep 10
+            curl -f http://localhost:5001 || echo "⚠️ Flask app not responding"
+            curl -f http://localhost:3000 || echo "⚠️ Grafana not responding"
+            curl -f http://localhost:9090 || echo "⚠️ Prometheus not responding"
+            
+            echo "✅ Deployment completed successfully!"
