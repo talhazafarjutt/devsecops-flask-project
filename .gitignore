@@ -164,14 +164,10 @@ safety-report.json
 sonar-report.json
 
 # Security scan outputs
-security-scan-results/
-scan-results/
-vulnerability-reports/
-
-# SonarQube
-.sonar/
-.sonarqube/
-sonar-project.properties.backup
+security-reports/
+*.html
+*.xml
+*.sarif
 
 # ===========================================
 # Docker & Containerization
