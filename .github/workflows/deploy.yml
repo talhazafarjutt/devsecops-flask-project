@@ -21,56 +21,86 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            echo "🚀 Starting deployment on Debian 13..."
-            
-            # Update system
-            apt update
-            
-            # Install required packages if not present
-            which docker || (curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh)
-            which docker-compose || (curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose)
-            which nginx || apt install -y nginx
-            which certbot || apt install -y certbot python3-certbot-nginx
-            
-            # Start Docker
-            systemctl start docker
-            systemctl enable docker
+            echo "�� Starting automated deployment..."
             
             # Navigate to project directory
             cd ~/projects/devsecops-flask-project || (mkdir -p ~/projects && cd ~/projects && git clone https://github.com/talhazafarjutt/devsecops-flask-project.git && cd devsecops-flask-project)
             
             # Pull latest changes
+            echo "📥 Pulling latest changes from main branch..."
             git pull origin main
             
+            # Update Nginx configuration
+            echo "🌐 Updating Nginx configuration..."
+            sudo cp nginx/nginx.conf /etc/nginx/sites-available/devsecops
+            
+            # Test Nginx configuration
+            echo "🧪 Testing Nginx configuration..."
+            sudo nginx -t
+            if [ $? -ne 0 ]; then
+              echo "❌ Nginx configuration test failed!"
+              exit 1
+            fi
+            
             # Stop existing containers
+            echo "🛑 Stopping existing containers..."
             docker-compose down || true
             
-            # Start containers
+            # Start containers with new configuration
+            echo "🚀 Starting containers with new configuration..."
             docker-compose up -d --build
             
             # Wait for services to be ready
+            echo "⏳ Waiting for services to start..."
             sleep 30
             
-            # Configure Nginx if not configured
-            if [ ! -f "/etc/nginx/sites-enabled/devsecops" ]; then
-              cp nginx/nginx.conf /etc/nginx/sites-available/devsecops
-              ln -sf /etc/nginx/sites-available/devsecops /etc/nginx/sites-enabled/
-              rm -f /etc/nginx/sites-enabled/default
-              nginx -t
-            fi
+            # Reload Nginx with new configuration
+            echo "🔄 Reloading Nginx..."
+            sudo systemctl reload nginx
             
-            # Get SSL certificate if not exists
-            if [ ! -f "/etc/letsencrypt/live/dev.devsecopsassignment.work.gd/fullchain.pem" ]; then
-              certbot --nginx -d dev.devsecopsassignment.work.gd --non-interactive --agree-tos --email zafartalhajutt@gmail.com || true
-            fi
-            
-            # Reload Nginx
-            systemctl reload nginx
-            
-            # Health check
+            # Health checks
+            echo "🏥 Performing health checks..."
             sleep 10
-            curl -f http://localhost:5001 || echo "⚠️ Flask app not responding"
-            curl -f http://localhost:3000 || echo "⚠️ Grafana not responding"
-            curl -f http://localhost:9090 || echo "⚠️ Prometheus not responding"
             
-            echo "✅ Deployment completed successfully!"
+            # Test Flask app
+            if curl -f http://localhost:5001 > /dev/null 2>&1; then
+              echo "✅ Flask app is running"
+            else
+              echo "❌ Flask app is not responding"
+              exit 1
+            fi
+            
+            # Test Grafana
+            if curl -f http://localhost:3000/grafana/ > /dev/null 2>&1; then
+              echo "✅ Grafana is running"
+            else
+              echo "❌ Grafana is not responding"
+              exit 1
+            fi
+            
+            # Test Prometheus
+            if curl -f http://localhost:9090 > /dev/null 2>&1; then
+              echo "✅ Prometheus is running"
+            else
+              echo "❌ Prometheus is not responding"
+              exit 1
+            fi
+            
+            # Test HTTPS access
+            echo "🔒 Testing HTTPS access..."
+            if curl -f https://dev.devsecopsassignment.work.gd > /dev/null 2>&1; then
+              echo "✅ HTTPS Flask app is accessible"
+            else
+              echo "❌ HTTPS Flask app is not accessible"
+            fi
+            
+            if curl -f https://dev.devsecopsassignment.work.gd/grafana/ > /dev/null 2>&1; then
+              echo "✅ HTTPS Grafana is accessible"
+            else
+              echo "❌ HTTPS Grafana is not accessible"
+            fi
+            
+            echo "🎉 Deployment completed successfully!"
+            echo "🌐 Flask App: https://dev.devsecopsassignment.work.gd"
+            echo "📊 Grafana: https://dev.devsecopsassignment.work.gd/grafana/"
+            echo "📈 Prometheus: https://dev.devsecopsassignment.work.gd/prometheus/"
