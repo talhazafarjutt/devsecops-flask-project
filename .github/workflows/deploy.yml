@@ -44,11 +44,11 @@ jobs:
             
             # Stop existing containers
             echo "🛑 Stopping existing containers..."
-            docker-compose down || true
+            docker compose down || true
             
             # Start containers with new configuration
             echo "🚀 Starting containers with new configuration..."
-            docker-compose up -d --build
+            docker compose up -d --build
             
             # Wait for services to be ready
             echo "⏳ Waiting for services to start..."
