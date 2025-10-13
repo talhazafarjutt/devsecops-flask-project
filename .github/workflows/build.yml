@@ -54,24 +54,26 @@ jobs:
         run: |
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Debug SonarCloud Connection
+      - name: Debug SonarQube Connection
         run: |
-          echo "Testing SonarCloud API connection..."
+          echo "Testing SonarQube API connection..."
           curl -u $SONAR_TOKEN: \
-            "https://sonarcloud.io/api/projects/search?projects=talhazafarjutt_devsecops-flask-project" \
+            "$SONAR_HOST_URL/api/projects/search?projects=devsecops-flask-project" \
             || echo "Connection test failed"
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@master
+        uses: SonarSource/sonarqube-scan-action@v6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
           args: >
-            -Dsonar.projectKey=talhazafarjutt_devsecops-flask-project
-            -Dsonar.organization=talhazafarjutt
+            -Dsonar.projectKey=devsecops-flask-project
+            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
             -Dsonar.python.version=3.11
             -Dsonar.coverage.exclusions=**/*
             -Dsonar.python.coverage.reportPaths=
