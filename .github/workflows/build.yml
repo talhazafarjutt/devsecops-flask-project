@@ -72,7 +72,7 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
           args: >
-            -Dsonar.projectKey=devsecops-flask-project
+            -Dsonar.projectKey=devsecops_sonar
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
             -Dsonar.python.version=3.11
             -Dsonar.coverage.exclusions=**/*
