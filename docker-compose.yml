@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "127.0.0.1:5001:80"  # Only bind to localhost
+      - "127.0.0.1:5001:80" 
     env_file:
       - .env
     volumes:
@@ -18,12 +18,12 @@ services:
       - "com.example.service=flask-app"
     restart: unless-stopped
 
-  # Prometheus - Metrics Collection
+  
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
     ports:
-      - "127.0.0.1:9090:9090"  # Only bind to localhost
+      - "127.0.0.1:9090:9090" 
     volumes:
       - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - ./monitoring/prometheus/rules:/etc/prometheus/rules
@@ -39,12 +39,12 @@ services:
       - monitoring_network
     restart: unless-stopped
 
-  # Grafana - Visualization Dashboard
+  
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
     ports:
-      - "127.0.0.1:3000:3000"  # Only bind to localhost
+      - "127.0.0.1:3000:3000"  
     volumes:
       - grafana_data:/var/lib/grafana
       - ./monitoring/grafana/provisioning:/etc/grafana/provisioning
@@ -57,7 +57,7 @@ services:
       - GF_SERVER_SERVE_FROM_SUB_PATH=true
       - GF_SERVER_DOMAIN=dev.devsecopsassignment.work.gd
       - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
-      # Additional Grafana security settings
+      
       - GF_SECURITY_COOKIE_SECURE=true
       - GF_SECURITY_COOKIE_SAMESITE=strict
       - GF_SECURITY_STRICT_TRANSPORT_SECURITY=true
@@ -72,12 +72,11 @@ services:
     depends_on:
       - prometheus
 
-  # Node Exporter - System Metrics
   node_exporter:
     image: prom/node-exporter:latest
     container_name: node_exporter
     ports:
-      - "127.0.0.1:9100:9100"  # Only bind to localhost
+      - "127.0.0.1:9100:9100"  
     volumes:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
@@ -96,7 +95,7 @@ services:
     image: gcr.io/cadvisor/cadvisor:latest
     container_name: cadvisor
     ports:
-      - "127.0.0.1:8080:8080"  # Only bind to localhost
+      - "127.0.0.1:8080:8080"
     volumes:
       - /:/rootfs:ro
       - /var/run:/var/run:ro

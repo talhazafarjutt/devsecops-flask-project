@@ -1,33 +1,76 @@
+# Version control
 .git
 .gitignore
+.github/
+.gitlab-ci.yml
+
+# Documentation
 README.md
 LICENSE
+*.md
+docs/
+
+# Docker files
 .dockerignore
 Dockerfile.*
-docker-compose.*.yml
+docker-compose*.yml
+
+# Environment
 .env
-*.md
-.gitlab-ci.yml
-.github/
+.env.*
+.venv/
+venv/
+env/
+ENV/
+
+# IDE & Editor
 .vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Testing & Coverage
 .pytest_cache/
 .coverage
-.pytest_cache/
-.coverage
-.env
-.venv/
-venv/
-env/
-.pytest_cache
-.coverage
+.coverage.*
 htmlcov/
-.pytest_cache/
-.coverage
+.tox/
+.nox/
 *.log
-.DS_Store
-Thumbs.db
+
+# Monitoring data (if local)
+monitoring/prometheus/data/
+monitoring/grafana/data/
+
+# Database (use volume instead)
+database/
+*.db
+*.sqlite
+*.sqlite3
+
+# Build artifacts
+*.tar
+*.zip
+*.gz
+
+# Security
+*.pem
+*.key
+*.crt
+secrets/
